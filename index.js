@@ -29,3 +29,5 @@ const pokemon = resposta.data
         console.log(salvos)
 
     })
+
+    //clonando repositório
