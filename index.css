@@ -4,12 +4,21 @@
     margin: 0;
 }
 .centralizar{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center
+    margin-top: 2em;
+    position: relative;
+    
+    
 }
 .card{
-    border: solid 5px rgba(84, 150, 41, 0.822);
+    border: solid 5px rgba(85, 150, 41, 0.466);
     margin:10px;
+    width: 250px;
+    padding: 5px;    
+}
+.controle{
+    width: 50px;
+    background-color: rgba(233, 37, 37, 0.397);
+}
+.opacity{
+    opacity: 85%;
 }
