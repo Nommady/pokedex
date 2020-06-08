@@ -11,7 +11,7 @@ function slidePokemonCrescente() {
 }
 
 var nomeDasHabilidades = [];
-var nomeDosTipos = [];
+
 
 axios.get(`https://pokeapi.co/api/v2/pokemon/${a}`)
     .then((resposta) => {
@@ -23,11 +23,14 @@ axios.get(`https://pokeapi.co/api/v2/pokemon/${a}`)
         pokemon.abilities.forEach((habilidade) => {
             nomeDasHabilidades.push(habilidade.ability.name)
         })
+        var nomeDosTipos = [];
 
         pokemon.types.forEach((Tipo) => {
             nomeDosTipos.push(Tipo.type.name)
         })
 
+        let tipo = document.getElementById('typeDoPoke1')
+        tipo.innerHTML = nomeDosTipos
 
         let nome = document.getElementById('nomeDoPoke1')
         nome.innerHTML = nomeDoPoke.toUpperCase()
@@ -51,9 +54,6 @@ axios.get(`https://pokeapi.co/api/v2/pokemon/${b}`)
             nomeDasHabilidades.push(habilidade.ability.name)
         })
 
-        pokemon.types.forEach((Tipo) => {
-            nomeDosTipos.push(Tipo.type.name)
-        })
 
         let nome = document.getElementById('nomeDoPoke2')
         nome.innerHTML = nomeDoPoke.toUpperCase()
@@ -73,10 +73,6 @@ axios.get(`https://pokeapi.co/api/v2/pokemon/${c}`)
 
         pokemon.abilities.forEach((habilidade) => {
             nomeDasHabilidades.push(habilidade.ability.name)
-        })
-
-        pokemon.types.forEach((Tipo) => {
-            nomeDosTipos.push(Tipo.type.name)
         })
 
         let nome = document.getElementById('nomeDoPoke3')
