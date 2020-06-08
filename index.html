@@ -43,17 +43,16 @@
   <!-- Navbar content -->
  
   <!--Main-->
-
   <div class="centralizar  d-flex justify-content-around ">
     <!--Controls-->
-    <a class="controle carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <button class="controle carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Anterior</span>
-    </a>
-    <a class="controle carousel-control-next " href="#carouselExampleControls" role="button" data-slide="next">
+    </button>
+    <button class="controle carousel-control-next" onclick="slidePokemonCrescente()"  href="#carouselExampleControls" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Próximo</span>
-    </a>
+    </button>
     <!--/.Controls-->
     <div id="carouselExampleControls" class="carousel" data-interval="0" data-ride="carousel">
       <div class="carousel-inner">
@@ -62,10 +61,10 @@
             <div class="row">
               <div class="col-lg-3 mx-5 col-sm-12 py-2 ">
                 <div class="card">
-                  <img class="card-img-top" src="./img/001.png" alt="Bulbasaur">
+                  <img class="card-img-top" id="imgDoPoke1" src="./img/001.png" alt="Bulbasaur">
                   <div class="card-body">
                     <h5 class="card-title" id="nomeDoPoke1" title="nomeDoPoke"></h5>
-                    <p class="card-title" id="idDoPoke" title="idDoPoke">001</p>
+                    <p class="card-title" id="idDoPoke1" title="idDoPoke">001</p>
                     <a href="#" class="btn btn-success my-1 btn-sm">Grass</a>
                     <a href="#" class="btn btn-danger btn-sm">Poison</a>
                   </div>
@@ -73,9 +72,9 @@
               </div>
               <div class="col-lg-3 mx-5 col-sm-12 py-2 ">
                 <div class="card">
-                  <img class="card-img-top" src="./img/001.png" alt="Bulbasaur">
+                  <img class="card-img-top" id="imgDoPoke2" src="./img/001.png" alt="Bulbasaur">
                   <div class="card-body">
-                    <h5 class="card-title" id="nomeDoPoke2" title="nomeDoPoke">Bulbasaur</h5>
+                    <h5 class="card-title" id="nomeDoPoke2" title="nomeDoPoke"></h5>
                     <p class="card-title" id="idDoPoke2" title="idDoPoke">001</p>
                     <a href="#" class="btn btn-success my-1 btn-sm">Grass</a>
                     <a href="#" class="btn btn-danger btn-sm">Poison</a>
@@ -84,9 +83,9 @@
               </div>
               <div class="col-lg-3 mx-5 col-sm-12 py-2 ">
                 <div class="card">
-                  <img class="card-img-top" src="./img/001.png" alt="Bulbasaur">
+                  <img class="card-img-top" id="imgDoPoke3" src="./img/001.png" alt="Bulbasaur">
                   <div class="card-body">
-                    <h5 class="card-title" id="nomeDoPoke3" title="nomeDoPoke">Bulbasaur</h5>
+                    <h5 class="card-title" id="nomeDoPoke3" title="nomeDoPoke"></h5>
                     <p class="card-title" id="idDoPoke3" title="idDoPoke">001</p>
                     <a href="#" class="btn btn-success my-1 btn-sm">Grass</a>
                     <a href="#" class="btn btn-danger btn-sm">Poison</a>
@@ -103,7 +102,6 @@
 
   <!--Fim de Main-->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
   <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="./index.js"></script>
