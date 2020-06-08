@@ -1,11 +1,7 @@
-const axios = require('axios')
-const rs = require('readline-sync')
 
 var url = "https://pokeapi.co/api/v2/pokemon/7"
 var nomeDasHabilidades = [];
 var nomeDosTipos = [];
-
-var poke = rs.question("Diga o nome:")
 
 axios.get(url)
 .then((resposta) => {
@@ -16,15 +12,13 @@ axios.get(url)
             nomeDasHabilidades.push(habilidade.ability.name)
         })
         console.log(nomeDasHabilidades)
-
         pokemon.types.forEach((Tipo) => {
             nomeDosTipos.push(Tipo.type.name)
         })
         console.log(nomeDosTipos)
 
-
     var nome = document.getElementById('nomeDoPoke1')
-    nome.innerHTML = nomeDoPoke
+    nome.innerHTML = nomeDoPoke.toUpperCase()
 
 
     })
