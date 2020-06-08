@@ -1,17 +1,17 @@
 const axios = require('axios')
 const rs = require('readline-sync')
 
-var url = "https://pokeapi.co/api/v2/pokemon/"
-var pesquisa = rs.question("digite o nome ou numero do Pokemons: ").toUpperCase()
+var url = "https://pokeapi.co/api/v2/pokemon/7"
 var nomeDasHabilidades = [];
 var nomeDosTipos = [];
-var salvos = []
 
-axios.get(`${url}${pesquisa}`)
-const pokemon = resposta.data
-    .then((resposta) => {
-        console.log(pokemon.name)
+var poke = rs.question("Diga o nome:")
 
+axios.get(url)
+.then((resposta) => {
+    const pokemon = resposta.data
+    var nomeDoPoke = pokemon.name
+    console.log(nomeDoPoke)
         pokemon.abilities.forEach((habilidade) => {
             nomeDasHabilidades.push(habilidade.ability.name)
         })
@@ -22,12 +22,10 @@ const pokemon = resposta.data
         })
         console.log(nomeDosTipos)
 
-        var desejaSalvar = rs.question("Deseja salvar o pokemon? ").toLowerCase()
-        if (desejaSalvar == "sim") {
-            salvos.push(pesquisa)
-        }
-        console.log(salvos)
+
+    var nome = document.getElementById('nomeDoPoke1')
+    nome.innerHTML = nomeDoPoke
+
 
     })
 
-    //clonando repositório
