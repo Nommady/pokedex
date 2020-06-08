@@ -1,29 +1,23 @@
 
-var url = "https://pokeapi.co/api/v2/pokemon/"
-var nomeDasHabilidades = [];
-var nomeDosTipos = [];
-
 var a = 1
 var b = 2
 var c = 3
 
-var imagem1 = 1
-var imagem2 = 2
-var imagem3 = 3
-
-function slidePokemonCrescente(){
+function slidePokemonCrescente() {
     a = a + 3
     b = b + 3
     c = c + 3
-    return
+    console.log(a,b,c)
 }
 
-axios.get(url + a)
+var nomeDasHabilidades = [];
+var nomeDosTipos = [];
+
+axios.get(`https://pokeapi.co/api/v2/pokemon/${a}`)
     .then((resposta) => {
         const pokemon = resposta.data
         let nomeDoPoke = pokemon.name
         console.log(nomeDoPoke)
-
         let idDoPokemon = pokemon.id
 
         pokemon.abilities.forEach((habilidade) => {
@@ -40,16 +34,16 @@ axios.get(url + a)
         let id = document.getElementById('idDoPoke1')
         id.innerHTML = (`#${idDoPokemon}`)
         let img1 = document.getElementById('imgDoPoke1')
-        img1.src = 'https://pokeres.bastionbot.org/images/pokemon/'+imagem1+'.png'
-        
+        img1.src = 'https://pokeres.bastionbot.org/images/pokemon/' + a + '.png'
+
 
     })
 
-axios.get(url + b)
+axios.get(`https://pokeapi.co/api/v2/pokemon/${b}`)
     .then((resposta) => {
         const pokemon = resposta.data
         let nomeDoPoke = pokemon.name
-        console.log(nomeDoPoke)
+
 
         let idDoPokemon = pokemon.id
 
@@ -66,14 +60,14 @@ axios.get(url + b)
         let id = document.getElementById('idDoPoke2')
         id.innerHTML = (`#${idDoPokemon}`)
         let img2 = document.getElementById('imgDoPoke2')
-        img2.src = 'https://pokeres.bastionbot.org/images/pokemon/'+imagem2+'.png'
+        img2.src = 'https://pokeres.bastionbot.org/images/pokemon/' + b + '.png'
 
     })
-axios.get(url + 3)
+axios.get(`https://pokeapi.co/api/v2/pokemon/${c}`)
     .then((resposta) => {
         const pokemon = resposta.data
         let nomeDoPoke = pokemon.name
-        console.log(nomeDoPoke)
+
 
         let idDoPokemon = pokemon.id
 
@@ -90,7 +84,8 @@ axios.get(url + 3)
         let id = document.getElementById('idDoPoke3')
         id.innerHTML = (`#${idDoPokemon}`)
         let img3 = document.getElementById('imgDoPoke3')
-        img3.src = 'https://pokeres.bastionbot.org/images/pokemon/'+imagem3+'.png'
+        img3.src = 'https://pokeres.bastionbot.org/images/pokemon/' + c + '.png'
     })
+
 
     

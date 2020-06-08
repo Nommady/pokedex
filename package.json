@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "readline-sync": "^1.4.10",
-    "requirejs": "^2.3.6"
+    "requirejs": "^2.3.6",
+    "startbootstrap": "0.0.1"
   }
 }
