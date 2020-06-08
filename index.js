@@ -12,6 +12,7 @@ function slidePokemonCrescente(){
     a = a + 3
     b = b + 3
     c = c + 3
+    return
 }
 
 axios.get(url + a)
