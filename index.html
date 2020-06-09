@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+    integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <title>Pokedex</title>
 </head>
 
@@ -25,7 +27,7 @@
       aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand text-light"  href="#">Poke API</a>
+    <a class="navbar-brand text-light" href="#">Poke API</a>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -34,7 +36,8 @@
 
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-2" style="width: 400px;" type="search" placeholder="Nome ou Número do Pokemon" aria-label="Search">
+        <input class="form-control mr-2" style="width: 400px;" type="search" placeholder="Nome ou Número do Pokemon"
+          aria-label="Search">
         <button class="btn btn-outline-light " type="submit">Buscar Pokémon</button>
       </form>
     </div>
@@ -44,12 +47,12 @@
   <!--Main-->
   <div class="centralizar  d-flex justify-content-around ">
     <!--Controls-->
-    <button class="controle carousel-control-prev" onclick="slidePokemonDecrescente()"
-     href="#carouselExampleControls" role="button" data-slide="prev">
+    <button class="controle carousel-control-prev" onclick="slidePokemonDecrescente()" href="#carouselExampleControls"
+      role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     </button>
-    <button class="controle carousel-control-next"  onclick="slidePokemonCrescente()"
-      href="#carouselExampleControls" role="button" data-slide="next">
+    <button class="controle carousel-control-next" onclick="slidePokemonCrescente()" href="#carouselExampleControls"
+      role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
     </button>
     <!--/.Controls-->
@@ -101,18 +104,34 @@
     </div>
 
   </div>
-<footer class="container-fluid bg-footer">
-  <div class="container py-5">
-    <div class="row">
-        <div class="col-md-6">
-            
+  <footer class="container-fluid bg-footer">
+    <div class="container py-5">
+      <div class="leftSide"></div>
+      <div class="row  ">
+        <div class="col-lg-6 ">
+          <h5 class="align-middle mt-3 mx-2"><i class=" mx-2 fas fa-user-plus"></i>Criado por Jorge Luiz</h5>
+          <ul class="mx-2">
+            <li><i class=" mx-2 my-2 fab fa-linkedin"></i><a
+                href="https://www.linkedin.com/in/jorge-luiz-carvalho-dos-santos-b41341144/">LinkedIn</a></li>
+            <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/Nommady"> GitHhb</a></li>
+            <li><i class=" mx-2 my-2 fab fa-twitter"></i><a href="https://twitter.com/Luiz_Carvaleo">Twitter</a></li>
+            <li><i class="mx-2 my-2 fab fa-codepen"></i><a href="https://codepen.io/Nommady">CodePen</a></li>
+          </ul>
         </div>
-        <div class="col-md-6">
-                
+          <div class="col-lg-6">
+          <h5 class="align-middle mt-3"><i class=" mx-2 fas fa-user-plus"></i>Criado por Hugo Felipe</h5>
+          <ul>
+            <li><i class=" mx-2 my-2 fab fa-linkedin"></i><a
+                href="https://www.linkedin.com/in/jorge-luiz-carvalho-dos-santos-b41341144/">LinkedIn</a></li>
+            <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/Nommady"> GitHhb</a></li>
+            <li><i class=" mx-2 my-2 fab fa-twitter"></i><a href="https://twitter.com/Luiz_Carvaleo">Twitter</a></li>
+            <li><i class="mx-2 my-2 fab fa-codepen"></i><a href="https://codepen.io/Nommady">CodePen</a></li>
+          </ul>
+        </div>        
         </div>
+      </div>
     </div>
-</div>
-</footer>
+  </footer>
   <!--Fim de Main-->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
