@@ -1,7 +1,7 @@
+
 var a = 1
 var b = 2
 var c = 3
-
 function slidePokemonCrescente() {
     a = a + 3
     b = b + 3
@@ -14,8 +14,8 @@ function slidePokemonDecrescente() {
     c = c - 3
     chamadaDePokemons()
 }
-var nomeDasHabilidades =[]
-function chamadaDePokemons() {  
+var nomeDasHabilidades = []
+function chamadaDePokemons() {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${a}`)
         .then((resposta) => {
             const pokemon = resposta.data
@@ -51,11 +51,11 @@ function chamadaDePokemons() {
 
 
             let idDoPokemon = pokemon.id
-            
+
             pokemon.abilities.forEach((habilidade) => {
                 nomeDasHabilidades.push(habilidade.ability.name)
             })
-            
+
             let nomeDosTipos = [];
             pokemon.types.forEach((Tipo) => {
                 nomeDosTipos.push(Tipo.type.name)
