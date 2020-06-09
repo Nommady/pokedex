@@ -101,12 +101,11 @@ function chamadaDePokemons() {
             let img3 = document.getElementById('imgDoPoke3')
             img3.src = 'https://pokeres.bastionbot.org/images/pokemon/' + c + '.png'
         })
-
 }
 
 var visibilidade = true
 
-function ocultarExibir() { // Quando clicar no botão.
+function ocultarExibir() { // função para alternar a exibição da div
 
     if (visibilidade) { //Se a variável visibilidade for igual a true, então...
         var busca = document.getElementById("carouselExampleControls").style.display = "none"; //Ocultamos a div
