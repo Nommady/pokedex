@@ -36,9 +36,9 @@
 
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-2" style="width: 400px;" type="search" placeholder="Nome ou Número do Pokemon"
+        <input class="form-control mr-2" id="busca" style="width: 300px;" type="search" placeholder="Nome ou Número do Pokemon"
           aria-label="Search">
-        <button class="btn btn-outline-light " type="submit">Buscar Pokémon</button>
+        <button class="btn btn-outline-light my-2 " id="buscaPokemon"  onclick="buscarPokemon()" type="submit">Buscar Pokémon</button>
       </form>
     </div>
   </nav>
@@ -56,6 +56,20 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
     </button>
     <!--/.Controls-->
+
+
+    <div id="telaDeBusca" class="card none">
+      <img class="card-img-top" id="imgDoPokeBusca" alt="primeiroCard">
+      <div class="card-body">
+        <h5 class="card-title" id="nomeDoPokeBusca" title="nomeDoPoke"></h5>
+        <p class="card-title" id="idDoPokeBusca" title="idDoPoke"></p>
+        <p class="card-title" id="typeDoPokeBusca" title="idDoPoke"></p>
+        <a href="#" class="btn btn-success my-1 btn-sm">Grass</a>
+        <a href="#" class="btn btn-danger btn-sm">Poison</a>
+      </div>
+    </div>
+
+
     <div id="carouselExampleControls" class="carousel" data-interval="0" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -104,28 +118,29 @@
     </div>
 
   </div>
-  <footer class="container-fluid bg-footer">
-    <div class="container py-5">
+  <!-- criadores -->
+  <footer class="bg-footer container-fluid " >
+    <div class="container py-5 " >
       <div class="leftSide"></div>
-      <div class="row  ">
+      <div class="row" >
         <div class="col-lg-6 ">
           <h5 class="align-middle mt-3 mx-2"><i class=" mx-2 fas fa-user-plus"></i>Criado por Jorge Luiz</h5>
           <ul class="mx-2">
-            <li><i class=" mx-2 my-2 fab fa-linkedin"></i><a
-                href="https://www.linkedin.com/in/jorge-luiz-carvalho-dos-santos-b41341144/">LinkedIn</a></li>
-            <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/Nommady"> GitHhb</a></li>
-            <li><i class=" mx-2 my-2 fab fa-twitter"></i><a href="https://twitter.com/Luiz_Carvaleo">Twitter</a></li>
-            <li><i class="mx-2 my-2 fab fa-codepen"></i><a href="https://codepen.io/Nommady">CodePen</a></li>
+            <li><i class=" mx-2 my-2 fab fa-linkedin"></i><a href="https://www.linkedin.com/in/jorge-luiz-carvalho-dos-santos" target="blank">LinkedIn</a></li>
+            <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/Nommady" target="blank"> GitHub</a></li>
+            <li><i class=" mx-2 my-2 fab fa-twitter"></i><a href="https://twitter.com/dev_luiz" target="blank">Twitter</a></li>
+            <li><i class="mx-2 my-2 fab fa-codepen"></i><a href="https://codepen.io/Nommady" target="blank">CodePen</a></li>
+            <li><i class="mx-2 my-2 fab fa-instagram"></i><a href="https://www.instagram.com/dev_jorgeluiz/" target="blank">Instagram</a></li>
           </ul>
         </div>
           <div class="col-lg-6">
           <h5 class="align-middle mt-3"><i class=" mx-2 fas fa-user-plus"></i>Criado por Hugo Felipe</h5>
           <ul>
-            <li><i class=" mx-2 my-2 fab fa-linkedin"></i><a 
-                href="https://www.linkedin.com/in/jorge-luiz-carvalho-dos-santos-b41341144/" >LinkedIn</a></li>
-            <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/Nommady"> GitHhb</a></li>
-            <li><i class=" mx-2 my-2 fab fa-twitter"></i><a href="https://twitter.com/Luiz_Carvaleo">Twitter</a></li>
-            <li><i class="mx-2 my-2 fab fa-codepen"></i><a href="https://codepen.io/Nommady">CodePen</a></li>
+            <li><i class=" mx-2 my-2 fab fa-linkedin"></i><a href="https://www.linkedin.com/in/felipeamanajas" target="blank">LinkedIn</a></li>
+            <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/felipeamanajas" target="blank"> GitHub</a></li>
+            <li><i class=" mx-2 my-2 fab fa-twitter"></i><a href="https://twitter.com/felipeamanajas" target="blank">Twitter</a></li>
+            <li><i class="mx-2 my-2 fab fa-codepen"></i><a href="https://codepen.io/felipeamanajas" target="blank">CodePen</a></li>
+            <li><i class="mx-2 my-2 fab fa-instagram"></i><a href="https://www.instagram.com/felipeamanajas/" target="blank">Instagram</a></li>
           </ul>
         </div>        
         </div>

@@ -102,3 +102,40 @@ function chamadaDePokemons() {
 
 
 }
+
+function buscarPokemon() {
+    let none = document.getElementById('carouselExampleControls')
+    none.classList.add('none')
+    var busca = document.getElementById('busca').value
+    
+    let show = document.getElementById('telaDeBusca')
+    show.classList.remove('none')
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${busca}`)
+        .then((resposta) => {
+            const pokemon = resposta.data
+            let nomeDoPoke = pokemon.name
+
+
+            let idDoPokemon = pokemon.id
+
+            pokemon.abilities.forEach((habilidade) => {
+                nomeDasHabilidades.push(habilidade.ability.name)
+            })
+            let nomeDosTipos = [];
+
+            pokemon.types.forEach((Tipo) => {
+                nomeDosTipos.push(Tipo.type.name)
+            })
+
+            let tipo = document.getElementById('typeDoPokeBusca')
+            tipo.innerHTML = nomeDosTipos
+            let nome = document.getElementById('nomeDoPokeBusca')
+            nome.innerHTML = nomeDoPoke.toUpperCase()
+            let id = document.getElementById('idDoPokeBusca')
+            id.innerHTML = (`#${idDoPokemon}`)
+            let imgBusca = document.getElementById('imgDoPokeBusca')
+            imgBusca.src = 'https://pokeres.bastionbot.org/images/pokemon/' + idDoPokemon + '.png'
+        })
+
+    
+}
