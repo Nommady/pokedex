@@ -2,156 +2,152 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="./index.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
-    integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-  <title>Pokedex</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <title>Pokedex</title>
 </head>
 
 <body>
-  <!-- Cover -->
-  <div class="col-12">
-    <a class="navbar-brand d-flex justify-content-center" href="#">
-      <img src="./img//pokemon-logo-5.png" class="opacity img-fluid" />
-    </a>
-  </div>
+    <!-- Cover -->
+    <div class="col-12">
+        <a class="navbar-brand d-flex justify-content-center" href="#">
+            <img src="./img//pokemon-logo-5.png" class="opacity img-fluid" />
+        </a>
+    </div>
 
-  <!-- Cover -->
+    <!-- Cover -->
 
-  <!-- Navbar content -->
-  <nav class="navbar navbar-expand-lg bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
-      aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Navbar content -->
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand text-light" href="#">Poke API</a>
+        <a class="navbar-brand text-light" href="#">Poke API</a>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-        </li>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                </li>
 
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-2" id="busca" style="width: 300px;" type="search" placeholder="Nome ou Número do Pokemon"
-          aria-label="Search">
-        <button class="btn btn-outline-light my-2 " id="buscaPokemon"  onclick="buscarPokemon()" type="submit">Buscar Pokémon</button>
-      </form>
-    </div>
-  </nav>
-  <!-- Navbar content -->
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-2" id="busca" style="width: 300px;" type="search" placeholder="Nome ou Número do Pokemon" aria-label="Search">
+                <!-- <button class="btn btn-outline-light my-2 " id="buscaPokemon"  onclick="buscarPokemon()" type="submit">Buscar Pokémon</button> -->
+                <button class="btn btn-outline-light my-2 " id="buscaPokemon" onclick="ocultarExibir()" type="submit">Buscar Pokémon</button>
+            </form>
+        </div>
+    </nav>
+    <!-- Navbar content -->
 
-  <!--Main-->
-  <div class="centralizar  d-flex justify-content-around ">
-    <!--Controls-->
-    <button class="controle carousel-control-prev" onclick="slidePokemonDecrescente()" href="#carouselExampleControls"
-      role="button" data-slide="prev">
+    <!--Main-->
+    <div class="centralizar  d-flex justify-content-around ">
+        <!--Controls-->
+        <button class="controle carousel-control-prev" onclick="slidePokemonDecrescente()" href="#carouselExampleControls" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     </button>
-    <button class="controle carousel-control-next" onclick="slidePokemonCrescente()" href="#carouselExampleControls"
-      role="button" data-slide="next">
+        <button class="controle carousel-control-next" onclick="slidePokemonCrescente()" href="#carouselExampleControls" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
     </button>
-    <!--/.Controls-->
+        <!--/.Controls-->
 
 
-    <div id="telaDeBusca" class="card none">
-      <img class="card-img-top" id="imgDoPokeBusca" alt="primeiroCard">
-      <div class="card-body">
-        <h5 class="card-title" id="nomeDoPokeBusca" title="nomeDoPoke"></h5>
-        <p class="card-title" id="idDoPokeBusca" title="idDoPoke"></p>
-        <p class="card-title" id="typeDoPokeBusca" title="idDoPoke"></p>
-        <a href="#" class="btn btn-success my-1 btn-sm">Grass</a>
-        <a href="#" class="btn btn-danger btn-sm">Poison</a>
-      </div>
-    </div>
-
-
-    <div id="carouselExampleControls" class="carousel" data-interval="0" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-lg-3 mx-5 col-sm-12 py-2 ">
-                <div class="card">
-                  <img class="card-img-top" id="imgDoPoke1" alt="primeiroCard">
-                  <div class="card-body">
-                    <h5 class="card-title" id="nomeDoPoke1" title="nomeDoPoke"></h5>
-                    <p class="card-title" id="idDoPoke1" title="idDoPoke"></p>
-                    <p class="card-title" id="typeDoPoke1" title="idDoPoke"></p>
-                    <a href="#" class="btn btn-success my-1 btn-sm">Grass</a>
-                    <a href="#" class="btn btn-danger btn-sm">Poison</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3 mx-5 col-sm-12 py-2 ">
-                <div class="card">
-                  <img class="card-img-top" id="imgDoPoke2" alt="segundoCard">
-                  <div class="card-body">
-                    <h5 class="card-title" id="nomeDoPoke2" title="nomeDoPoke"></h5>
-                    <p class="card-title" id="idDoPoke2" title="idDoPoke"></p>
-                    <p class="card-title" id="typeDoPoke2" title="idDoPoke"></p>
-                    <a href="#" class="btn btn-success my-1 btn-sm">Grssass</a>
-                    <a href="#" class="btn btn-danger btn-sm">Poison</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3 mx-5 col-sm-12 py-2 ">
-                <div class="card">
-                  <img class="card-img-top" id="imgDoPoke3" alt="terceiroCard">
-                  <div class="card-body">
-                    <h5 class="card-title" id="nomeDoPoke3" title="nomeDoPoke"></h5>
-                    <p class="card-title" id="idDoPoke3" title="idDoPoke"></p>
-                    <p class="card-title" id="typeDoPoke3" title="idDoPoke"></p>
-                    <a href="#" class="btn btn-success my-1 btn-sm">Grass</a>
-                    <a href="#" class="btn btn-danger btn-sm">Poison</a>
-                  </div>
-                </div>
-              </div>
+        <div id="telaDeBusca" class="card none">
+            <img class="card-img-top" id="imgDoPokeBusca" alt="primeiroCard">
+            <div class="card-body">
+                <h5 class="card-title" id="nomeDoPokeBusca" title="nomeDoPoke"></h5>
+                <p class="card-title" id="idDoPokeBusca" title="idDoPoke"></p>
+                <p class="card-title" id="typeDoPokeBusca" title="idDoPoke"></p>
+                <a href="#" class="btn btn-success my-1 btn-sm">Grass</a>
+                <a href="#" class="btn btn-danger btn-sm">Poison</a>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
 
-  </div>
-  <!-- criadores -->
-  <footer class="bg-footer container-fluid " >
-    <div class="container py-5 " >
-      <div class="leftSide"></div>
-      <div class="row" >
-        <div class="col-lg-6 ">
-          <h5 class="align-middle mt-3 mx-2"><i class=" mx-2 fas fa-user-plus"></i>Criado por Jorge Luiz</h5>
-          <ul class="mx-2">
-            <li><i class=" mx-2 my-2 fab fa-linkedin"></i><a href="https://www.linkedin.com/in/jorge-luiz-carvalho-dos-santos" target="blank">LinkedIn</a></li>
-            <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/Nommady" target="blank"> GitHub</a></li>
-            <li><i class=" mx-2 my-2 fab fa-twitter"></i><a href="https://twitter.com/dev_luiz" target="blank">Twitter</a></li>
-            <li><i class="mx-2 my-2 fab fa-codepen"></i><a href="https://codepen.io/Nommady" target="blank">CodePen</a></li>
-            <li><i class="mx-2 my-2 fab fa-instagram"></i><a href="https://www.instagram.com/dev_jorgeluiz/" target="blank">Instagram</a></li>
-          </ul>
+
+        <div id="carouselExampleControls" class="carousel" data-interval="0" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-3 mx-5 col-sm-12 py-2 ">
+                                <div class="card">
+                                    <img class="card-img-top" id="imgDoPoke1" alt="primeiroCard">
+                                    <div class="card-body">
+                                        <h5 class="card-title" id="nomeDoPoke1" title="nomeDoPoke"></h5>
+                                        <p class="card-title" id="idDoPoke1" title="idDoPoke"></p>
+                                        <p class="card-title" id="typeDoPoke1" title="idDoPoke"></p>
+                                        <a href="#" class="btn btn-success my-1 btn-sm">Grass</a>
+                                        <a href="#" class="btn btn-danger btn-sm">Poison</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mx-5 col-sm-12 py-2 ">
+                                <div class="card">
+                                    <img class="card-img-top" id="imgDoPoke2" alt="segundoCard">
+                                    <div class="card-body">
+                                        <h5 class="card-title" id="nomeDoPoke2" title="nomeDoPoke"></h5>
+                                        <p class="card-title" id="idDoPoke2" title="idDoPoke"></p>
+                                        <p class="card-title" id="typeDoPoke2" title="idDoPoke"></p>
+                                        <a href="#" class="btn btn-success my-1 btn-sm">Grssass</a>
+                                        <a href="#" class="btn btn-danger btn-sm">Poison</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mx-5 col-sm-12 py-2 ">
+                                <div class="card">
+                                    <img class="card-img-top" id="imgDoPoke3" alt="terceiroCard">
+                                    <div class="card-body">
+                                        <h5 class="card-title" id="nomeDoPoke3" title="nomeDoPoke"></h5>
+                                        <p class="card-title" id="idDoPoke3" title="idDoPoke"></p>
+                                        <p class="card-title" id="typeDoPoke3" title="idDoPoke"></p>
+                                        <a href="#" class="btn btn-success my-1 btn-sm">Grass</a>
+                                        <a href="#" class="btn btn-danger btn-sm">Poison</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-          <div class="col-lg-6">
-          <h5 class="align-middle mt-3"><i class=" mx-2 fas fa-user-plus"></i>Criado por Hugo Felipe</h5>
-          <ul>
-            <li><i class=" mx-2 my-2 fab fa-linkedin"></i><a href="https://www.linkedin.com/in/felipeamanajas" target="blank">LinkedIn</a></li>
-            <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/felipeamanajas" target="blank"> GitHub</a></li>
-            <li><i class=" mx-2 my-2 fab fa-twitter"></i><a href="https://twitter.com/felipeamanajas" target="blank">Twitter</a></li>
-            <li><i class="mx-2 my-2 fab fa-codepen"></i><a href="https://codepen.io/felipeamanajas" target="blank">CodePen</a></li>
-            <li><i class="mx-2 my-2 fab fa-instagram"></i><a href="https://www.instagram.com/felipeamanajas/" target="blank">Instagram</a></li>
-          </ul>
-        </div>        
-        </div>
-      </div>
+
     </div>
-  </footer>
-  <!--Fim de Main-->
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="./index.js"></script>
+    <!-- criadores -->
+    <footer class="bg-footer container-fluid ">
+        <div class="container py-5 ">
+            <div class="leftSide"></div>
+            <div class="row">
+                <div class="col-lg-6 ">
+                    <h5 class="align-middle mt-3 mx-2"><i class=" mx-2 fas fa-user-plus"></i>Criado por Jorge Luiz</h5>
+                    <ul class="mx-2">
+                        <li><i class=" mx-2 my-2 fab fa-linkedin"></i><a href="https://www.linkedin.com/in/jorge-luiz-carvalho-dos-santos" target="blank">LinkedIn</a></li>
+                        <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/Nommady" target="blank"> GitHub</a></li>
+                        <li><i class=" mx-2 my-2 fab fa-twitter"></i><a href="https://twitter.com/dev_luiz" target="blank">Twitter</a></li>
+                        <li><i class="mx-2 my-2 fab fa-codepen"></i><a href="https://codepen.io/Nommady" target="blank">CodePen</a></li>
+                        <li><i class="mx-2 my-2 fab fa-instagram"></i><a href="https://www.instagram.com/dev_jorgeluiz/" target="blank">Instagram</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <h5 class="align-middle mt-3"><i class=" mx-2 fas fa-user-plus"></i>Criado por Hugo Felipe</h5>
+                    <ul>
+                        <li><i class=" mx-2 my-2 fab fa-linkedin"></i><a href="https://www.linkedin.com/in/felipeamanajas" target="blank">LinkedIn</a></li>
+                        <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/felipeamanajas" target="blank"> GitHub</a></li>
+                        <li><i class=" mx-2 my-2 fab fa-twitter"></i><a href="https://twitter.com/felipeamanajas" target="blank">Twitter</a></li>
+                        <li><i class="mx-2 my-2 fab fa-codepen"></i><a href="https://codepen.io/felipeamanajas" target="blank">CodePen</a></li>
+                        <li><i class="mx-2 my-2 fab fa-instagram"></i><a href="https://www.instagram.com/felipeamanajas/" target="blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <!--Fim de Main-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
 </body>
 
 </html>

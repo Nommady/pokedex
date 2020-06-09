@@ -1,12 +1,14 @@
 var a = 1
 var b = 2
 var c = 3
+
 function slidePokemonCrescente() {
     a = a + 3
     b = b + 3
     c = c + 3
     chamadaDePokemons()
 }
+
 function slidePokemonDecrescente() {
     a = a - 3
     b = b - 3
@@ -100,42 +102,48 @@ function chamadaDePokemons() {
             img3.src = 'https://pokeres.bastionbot.org/images/pokemon/' + c + '.png'
         })
 
-
 }
 
-function buscarPokemon() {
-    let none = document.getElementById('carouselExampleControls')
-    none.classList.add('none')
-    var busca = document.getElementById('busca').value
-    
-    let show = document.getElementById('telaDeBusca')
-    show.classList.remove('none')
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${busca}`)
-        .then((resposta) => {
-            const pokemon = resposta.data
-            let nomeDoPoke = pokemon.name
+var visibilidade = true
 
+function ocultarExibir() { // Quando clicar no botão.
 
-            let idDoPokemon = pokemon.id
+    if (visibilidade) { //Se a variável visibilidade for igual a true, então...
+        var busca = document.getElementById("carouselExampleControls").style.display = "none"; //Ocultamos a div
+        visibilidade = false; //alteramos o valor da variável para falso.
 
-            pokemon.abilities.forEach((habilidade) => {
-                nomeDasHabilidades.push(habilidade.ability.name)
+    } else { //ou se a variável estiver com o valor false..
+        document.getElementById("carouselExampleControls").style.display = "block"; //Exibimos a div..
+        visibilidade = true; //Alteramos o valor da variável para true.
+        var busca = document.getElementById('busca').value
+        var show = document.getElementById('telaDeBusca')
+
+        show.classList.remove('none')
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${busca}`)
+            .then((resposta) => {
+                const pokemon = resposta.data
+                let nomeDoPoke = pokemon.name
+                let idDoPokemon = pokemon.id
+
+                pokemon.abilities.forEach((habilidade) => {
+                    nomeDasHabilidades.push(habilidade.ability.name)
+                })
+
+                let nomeDosTipos = [];
+
+                pokemon.types.forEach((Tipo) => {
+                    nomeDosTipos.push(Tipo.type.name)
+                })
+
+                let tipo = document.getElementById('typeDoPokeBusca')
+                tipo.innerHTML = nomeDosTipos
+                let nome = document.getElementById('nomeDoPokeBusca')
+                nome.innerHTML = nomeDoPoke.toUpperCase()
+                let id = document.getElementById('idDoPokeBusca')
+                id.innerHTML = (`#${idDoPokemon}`)
+                let imgBusca = document.getElementById('imgDoPokeBusca')
+                imgBusca.src = 'https://pokeres.bastionbot.org/images/pokemon/' + idDoPokemon + '.png'
             })
-            let nomeDosTipos = [];
+    }
 
-            pokemon.types.forEach((Tipo) => {
-                nomeDosTipos.push(Tipo.type.name)
-            })
-
-            let tipo = document.getElementById('typeDoPokeBusca')
-            tipo.innerHTML = nomeDosTipos
-            let nome = document.getElementById('nomeDoPokeBusca')
-            nome.innerHTML = nomeDoPoke.toUpperCase()
-            let id = document.getElementById('idDoPokeBusca')
-            id.innerHTML = (`#${idDoPokemon}`)
-            let imgBusca = document.getElementById('imgDoPokeBusca')
-            imgBusca.src = 'https://pokeres.bastionbot.org/images/pokemon/' + idDoPokemon + '.png'
-        })
-
-    
 }
