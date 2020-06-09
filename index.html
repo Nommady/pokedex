@@ -6,71 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+        integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <title>Pokedex</title>
 </head>
 
 <body>
-    <!-- Cover -->
+    <!-- Navbar content -->
+
     <div class="col-12">
         <a class="navbar-brand d-flex justify-content-center" href="#">
-            <img src="./img//pokemon-logo-5.png" class="opacity img-fluid" />
-        </a>
+            <img src="./img//pokemon-logo-5.png" class="opacity img-fluid" /></a>
     </div>
-
-    <!-- Cover -->
-
-    <!-- Navbar content -->
     <nav class="navbar navbar-expand-lg bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <a class="navbar-brand text-light" href="#">Poke API</a>
-
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                </li>
-
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-2" id="busca" style="width: 300px;" type="search" placeholder="Nome ou Número do Pokemon" aria-label="Search">
-                <!-- <button class="btn btn-outline-light my-2 " id="buscaPokemon"  onclick="buscarPokemon()" type="submit">Buscar Pokémon</button> -->
-                <button class="btn btn-outline-light my-2 " id="buscaPokemon" onclick="ocultarExibir()" type="submit">Buscar Pokémon</button>
-            </form>
+                <li class="nav-item active"></li>
+            </ul>            
+                <input class="form-control mr-2" id="busca" style="width: 300px;" type="search" placeholder="Nome ou Número do Pokemon">
+                <button onclick="buscarPokemon()"  class="btn btn-outline-light my-2">Buscar Pokémon</button>           
         </div>
     </nav>
-    <!-- Navbar content -->
-
+    <!--Fim do  Navbar content -->
     <!--Main-->
-    <div class="centralizar  d-flex justify-content-around ">
-        <!--Controls-->
-        <button class="controle carousel-control-prev" onclick="slidePokemonDecrescente()" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </button>
-        <button class="controle carousel-control-next" onclick="slidePokemonCrescente()" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </button>
-        <!--/.Controls-->
+    <div id="main" class="centralizar  d-flex justify-content-around ">
+        <!--Controle dos cards -->
+        <!--Botao voltar-->
+        <button class="controle carousel-control-prev" onclick="slidePokemonDecrescente()"
+            href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <!--botao avançar-->
+        <button class="controle carousel-control-next" onclick="slidePokemonCrescente()" href="#carouselExampleControls"
+            role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+        <!--/Fim do Controle dos cards -->
 
-
-        <div id="telaDeBusca" class="card none">
-            <img class="card-img-top" id="imgDoPokeBusca" alt="primeiroCard">
-            <div class="card-body">
-                <h5 class="card-title" id="nomeDoPokeBusca" title="nomeDoPoke"></h5>
-                <p class="card-title" id="idDoPokeBusca" title="idDoPoke"></p>
-                <p class="card-title" id="typeDoPokeBusca" title="idDoPoke"></p>
-                <a href="#" class="btn btn-success my-1 btn-sm">Grass</a>
-                <a href="#" class="btn btn-danger btn-sm">Poison</a>
-            </div>
+<div id="telaDeBusca" class="container-fluid none">
+    <div class="row">
+        <div  class="col-3">  
+            <img class="imagemPokeBusca"  id="imgPokeBusca" alt="">
         </div>
-
-
+        <div class="PokeDescricaoBloco col-8">
+                <h3 id="nomePokeBusca"></h3>
+                <p id="idDoPokeBusca"></p>
+                <p id="pokeDescricao"></p>
+                <p id="pokeTipoBusca"></p>
+                <ul id="pokeHabilidades"></ul>
+        </div>
+    </div>
+</div>
+        <!--inicio dos card-->
         <div id="carouselExampleControls" class="carousel" data-interval="0" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="container-fluid">
                         <div class="row">
+                            <!--Primeiro card-->
                             <div class="col-lg-3 mx-5 col-sm-12 py-2 ">
                                 <div class="card">
                                     <img class="card-img-top" id="imgDoPoke1" alt="primeiroCard">
@@ -83,6 +81,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--Segundo Card-->
                             <div class="col-lg-3 mx-5 col-sm-12 py-2 ">
                                 <div class="card">
                                     <img class="card-img-top" id="imgDoPoke2" alt="segundoCard">
@@ -95,6 +94,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--Terceiro Card-->
                             <div class="col-lg-3 mx-5 col-sm-12 py-2 ">
                                 <div class="card">
                                     <img class="card-img-top" id="imgDoPoke3" alt="terceiroCard">
@@ -112,9 +112,9 @@
                 </div>
             </div>
         </div>
-
     </div>
-    <!-- criadores -->
+    <!-- Fim do main -->
+    <!--Footer-->
     <footer class="bg-footer container-fluid ">
         <div class="container py-5 ">
             <div class="leftSide"></div>
@@ -122,28 +122,39 @@
                 <div class="col-lg-6 ">
                     <h5 class="align-middle mt-3 mx-2"><i class=" mx-2 fas fa-user-plus"></i>Criado por Jorge Luiz</h5>
                     <ul class="mx-2">
-                        <li><i class=" mx-2 my-2 fab fa-linkedin"></i><a href="https://www.linkedin.com/in/jorge-luiz-carvalho-dos-santos" target="blank">LinkedIn</a></li>
-                        <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/Nommady" target="blank"> GitHub</a></li>
-                        <li><i class=" mx-2 my-2 fab fa-twitter"></i><a href="https://twitter.com/dev_luiz" target="blank">Twitter</a></li>
-                        <li><i class="mx-2 my-2 fab fa-codepen"></i><a href="https://codepen.io/Nommady" target="blank">CodePen</a></li>
-                        <li><i class="mx-2 my-2 fab fa-instagram"></i><a href="https://www.instagram.com/dev_jorgeluiz/" target="blank">Instagram</a></li>
+                        <li><i class=" mx-2 my-2 fab fa-linkedin"></i><a
+                                href="https://www.linkedin.com/in/jorge-luiz-carvalho-dos-santos"
+                                target="blank">LinkedIn</a></li>
+                        <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/Nommady" target="blank">
+                                GitHub</a></li>
+                        <li><i class=" mx-2 my-2 fab fa-twitter"></i><a href="https://twitter.com/dev_luiz"
+                                target="blank">Twitter</a></li>
+                        <li><i class="mx-2 my-2 fab fa-codepen"></i><a href="https://codepen.io/Nommady"
+                                target="blank">CodePen</a></li>
+                        <li><i class="mx-2 my-2 fab fa-instagram"></i><a href="https://www.instagram.com/dev_jorgeluiz/"
+                                target="blank">Instagram</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-6">
                     <h5 class="align-middle mt-3"><i class=" mx-2 fas fa-user-plus"></i>Criado por Hugo Felipe</h5>
                     <ul>
-                        <li><i class=" mx-2 my-2 fab fa-linkedin"></i><a href="https://www.linkedin.com/in/felipeamanajas" target="blank">LinkedIn</a></li>
-                        <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/felipeamanajas" target="blank"> GitHub</a></li>
-                        <li><i class=" mx-2 my-2 fab fa-twitter"></i><a href="https://twitter.com/felipeamanajas" target="blank">Twitter</a></li>
-                        <li><i class="mx-2 my-2 fab fa-codepen"></i><a href="https://codepen.io/felipeamanajas" target="blank">CodePen</a></li>
-                        <li><i class="mx-2 my-2 fab fa-instagram"></i><a href="https://www.instagram.com/felipeamanajas/" target="blank">Instagram</a></li>
+                        <li><i class=" mx-2 my-2 fab fa-linkedin"></i><a
+                                href="https://www.linkedin.com/in/felipeamanajas" target="blank">LinkedIn</a></li>
+                        <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/felipeamanajas"
+                                target="blank"> GitHub</a></li>
+                        <li><i class=" mx-2 my-2 fab fa-twitter"></i><a href="https://twitter.com/felipeamanajas"
+                                target="blank">Twitter</a></li>
+                        <li><i class="mx-2 my-2 fab fa-codepen"></i><a href="https://codepen.io/felipeamanajas"
+                                target="blank">CodePen</a></li>
+                        <li><i class="mx-2 my-2 fab fa-instagram"></i><a
+                                href="https://www.instagram.com/felipeamanajas/" target="blank">Instagram</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         </div>
     </footer>
-    <!--Fim de Main-->
+    <!--Fim de footer-->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>

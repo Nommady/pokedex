@@ -2,6 +2,99 @@ var a = 1
 var b = 2
 var c = 3
 
+function chamadaDePokemons() {
+    //Primeiro Card
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${a}`)
+        .then((resposta) => {
+            const pokemonA = resposta.data
+            let nomeDoPokeA = pokemonA.name
+            let idDoPokemonA = pokemonA.id
+            let nomeDasHabilidadesA = []
+
+            pokemonA.abilities.forEach((habilidade) => {
+                nomeDasHabilidadesA.push(habilidade.ability.name)
+            })
+            let nomeDosTiposA = [];
+
+            pokemonA.types.forEach((Tipo) => {
+                nomeDosTiposA.push(Tipo.type.name)
+            })
+
+            let tipoA = document.getElementById('typeDoPoke1')
+            tipoA.innerHTML = (`Tipo: ${nomeDosTiposA}`)
+
+            let nomeA = document.getElementById('nomeDoPoke1')
+            nomeA.innerHTML = nomeDoPokeA.toUpperCase()
+            let idA = document.getElementById('idDoPoke1')
+            idA.innerHTML = (`#${idDoPokemonA}`)
+            let imgA = document.getElementById('imgDoPoke1')
+            imgA.src = 'https://pokeres.bastionbot.org/images/pokemon/' + a + '.png'
+
+
+        })
+        //Segundo Card
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${b}`)
+        .then((resposta) => {
+            const pokemonB = resposta.data
+            let nomeDoPokeB = pokemonB.name
+            let idDoPokemonB = pokemonB.id
+            let nomeDasHabilidadesB = []
+
+            pokemonB.abilities.forEach((habilidade) => {
+                nomeDasHabilidadesB.push(habilidade.ability.name)
+            })
+            let nomeDosTiposB = [];
+
+            pokemonB.types.forEach((Tipo) => {
+                nomeDosTiposB.push(Tipo.type.name)
+            })
+
+            let tipoB = document.getElementById('typeDoPoke2')
+            tipoB.innerHTML = (`Tipo: ${nomeDosTiposB}`)
+
+            let nomeB = document.getElementById('nomeDoPoke2')
+            nomeB.innerHTML = nomeDoPokeB.toUpperCase()
+            let idB = document.getElementById('idDoPoke2')
+            idB.innerHTML = (`#${idDoPokemonB}`)
+            let imgB = document.getElementById('imgDoPoke2')
+            imgB.src = 'https://pokeres.bastionbot.org/images/pokemon/' + b + '.png'
+
+
+        })
+        //Terceiro Card
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${c}`)
+        .then((resposta) => {
+            const pokemonC = resposta.data
+            let nomeDoPokeC = pokemonC.name
+            let idDoPokemonC = pokemonC.id
+            let nomeDasHabilidadesC = []
+
+            pokemonC.abilities.forEach((habilidade) => {
+                nomeDasHabilidadesC.push(habilidade.ability.name)
+            })
+            let nomeDosTiposC = [];
+
+            pokemonC.types.forEach((Tipo) => {
+                nomeDosTiposC.push(Tipo.type.name)
+            })
+
+            let tipoC = document.getElementById('typeDoPoke3')
+            tipoC.innerHTML = (`Tipo: ${nomeDosTiposC}`)
+
+            let nomeC = document.getElementById('nomeDoPoke3')
+            nomeC.innerHTML = nomeDoPokeC.toUpperCase()
+            let idC = document.getElementById('idDoPoke3')
+            idC.innerHTML = (`#${idDoPokemonC}`)
+            let imgC = document.getElementById('imgDoPoke3')
+            imgC.src = 'https://pokeres.bastionbot.org/images/pokemon/' + c + '.png'
+
+
+        })
+
+    
+}
+chamadaDePokemons()
+
 function slidePokemonCrescente() {
     a = a + 3
     b = b + 3
@@ -15,134 +108,47 @@ function slidePokemonDecrescente() {
     c = c - 3
     chamadaDePokemons()
 }
-chamadaDePokemons()
-var nomeDasHabilidades = []
 
-function chamadaDePokemons() {
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${a}`)
+function buscarPokemon(){
+    let none = document.getElementById('carouselExampleControls')
+    none.classList.add('none')
+
+    let show = document.getElementById('telaDeBusca')
+    show.classList.remove('none')
+
+    let pokeBusca = document.getElementById('busca').value
+
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeBusca}`)
         .then((resposta) => {
-            const pokemon = resposta.data
-            let nomeDoPoke = pokemon.name
-            let idDoPokemon = pokemon.id
+            const pokemonBusca = resposta.data
+            let nomeDoPokeBusca = pokemonBusca.name
+            let idDoPokemonBusca = pokemonBusca.id
+            let nomeDasHabilidadesBusca = []
 
-            pokemon.abilities.forEach((habilidade) => {
-                nomeDasHabilidades.push(habilidade.ability.name)
+            pokemonBusca.abilities.forEach((habilidade) => {
+                nomeDasHabilidadesBusca.push(habilidade.ability.name)
             })
-            let nomeDosTipos = [];
+            let nomeDosTiposBusca = [];
 
-            pokemon.types.forEach((Tipo) => {
-                nomeDosTipos.push(Tipo.type.name)
+            pokemonBusca.types.forEach((Tipo) => {
+                nomeDosTiposBusca.push(Tipo.type.name)
             })
 
-            let tipo = document.getElementById('typeDoPoke1')
-            tipo.innerHTML = nomeDosTipos
+            let tipoBusca = document.getElementById('pokeTipoBusca')
+            tipoBusca.innerHTML = (`Tipo: ${nomeDosTiposBusca}`)
 
-            let nome = document.getElementById('nomeDoPoke1')
-            nome.innerHTML = nomeDoPoke.toUpperCase()
-            let id = document.getElementById('idDoPoke1')
-            id.innerHTML = (`#${idDoPokemon}`)
-            let img1 = document.getElementById('imgDoPoke1')
-            img1.src = 'https://pokeres.bastionbot.org/images/pokemon/' + a + '.png'
+            let nomeBusca = document.getElementById('nomePokeBusca')
+            nomeBusca.innerHTML = nomeDoPokeBusca.toUpperCase()
+
+            let idBusca = document.getElementById('idDoPokeBusca')
+            idBusca.innerHTML = (`#${idDoPokemonBusca}`)
+
+            let imgBusca = document.getElementById('imgPokeBusca')            
+            imgBusca.src = 'https://pokeres.bastionbot.org/images/pokemon/' + pokemonBusca.id + '.png'
 
 
         })
 
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${b}`)
-        .then((resposta) => {
-            const pokemon = resposta.data
-            let nomeDoPoke = pokemon.name
 
-
-            let idDoPokemon = pokemon.id
-
-            pokemon.abilities.forEach((habilidade) => {
-                nomeDasHabilidades.push(habilidade.ability.name)
-            })
-
-            let nomeDosTipos = [];
-            pokemon.types.forEach((Tipo) => {
-                nomeDosTipos.push(Tipo.type.name)
-            })
-
-            let tipo = document.getElementById('typeDoPoke2')
-            tipo.innerHTML = nomeDosTipos
-
-            let nome = document.getElementById('nomeDoPoke2')
-            nome.innerHTML = nomeDoPoke.toUpperCase()
-            let id = document.getElementById('idDoPoke2')
-            id.innerHTML = (`#${idDoPokemon}`)
-            let img2 = document.getElementById('imgDoPoke2')
-            img2.src = 'https://pokeres.bastionbot.org/images/pokemon/' + b + '.png'
-
-        })
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${c}`)
-        .then((resposta) => {
-            const pokemon = resposta.data
-            let nomeDoPoke = pokemon.name
-
-
-            let idDoPokemon = pokemon.id
-
-            pokemon.abilities.forEach((habilidade) => {
-                nomeDasHabilidades.push(habilidade.ability.name)
-            })
-            let nomeDosTipos = [];
-
-            pokemon.types.forEach((Tipo) => {
-                nomeDosTipos.push(Tipo.type.name)
-            })
-
-            let tipo = document.getElementById('typeDoPoke3')
-            tipo.innerHTML = nomeDosTipos
-            let nome = document.getElementById('nomeDoPoke3')
-            nome.innerHTML = nomeDoPoke.toUpperCase()
-            let id = document.getElementById('idDoPoke3')
-            id.innerHTML = (`#${idDoPokemon}`)
-            let img3 = document.getElementById('imgDoPoke3')
-            img3.src = 'https://pokeres.bastionbot.org/images/pokemon/' + c + '.png'
-        })
-}
-
-var visibilidade = true
-
-function ocultarExibir() { // função para alternar a exibição da div
-
-    if (visibilidade) { //Se a variável visibilidade for igual a true, então...
-        var busca = document.getElementById("carouselExampleControls").style.display = "none"; //Ocultamos a div
-        visibilidade = false; //alteramos o valor da variável para falso.
-
-    } else { //ou se a variável estiver com o valor false..
-        document.getElementById("carouselExampleControls").style.display = "block"; //Exibimos a div..
-        visibilidade = true; //Alteramos o valor da variável para true.
-        var busca = document.getElementById('busca').value
-        var show = document.getElementById('telaDeBusca')
-
-        show.classList.remove('none')
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${busca}`)
-            .then((resposta) => {
-                const pokemon = resposta.data
-                let nomeDoPoke = pokemon.name
-                let idDoPokemon = pokemon.id
-
-                pokemon.abilities.forEach((habilidade) => {
-                    nomeDasHabilidades.push(habilidade.ability.name)
-                })
-
-                let nomeDosTipos = [];
-
-                pokemon.types.forEach((Tipo) => {
-                    nomeDosTipos.push(Tipo.type.name)
-                })
-
-                let tipo = document.getElementById('typeDoPokeBusca')
-                tipo.innerHTML = nomeDosTipos
-                let nome = document.getElementById('nomeDoPokeBusca')
-                nome.innerHTML = nomeDoPoke.toUpperCase()
-                let id = document.getElementById('idDoPokeBusca')
-                id.innerHTML = (`#${idDoPokemon}`)
-                let imgBusca = document.getElementById('imgDoPokeBusca')
-                imgBusca.src = 'https://pokeres.bastionbot.org/images/pokemon/' + idDoPokemon + '.png'
-            })
-    }
-
+   
 }
