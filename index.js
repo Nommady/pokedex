@@ -14,7 +14,9 @@ function slidePokemonDecrescente() {
     c = c - 3
     chamadaDePokemons()
 }
+chamadaDePokemons()
 var nomeDasHabilidades = []
+
 function chamadaDePokemons() {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${a}`)
         .then((resposta) => {
