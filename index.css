@@ -24,20 +24,27 @@ body{
     border: solid 1px rgb(250, 250, 250);
 }
 .bg-footer{
-    background-image: url(./img/bg-centralizar.jpg);
-    color: rgb(7, 7, 7);
-    font-weight: bolder;
     position: relative;
+    background-image: url(./img/bg-centralizar.jpg);
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    
+    
 }
 .leftSide{
-    background-color: #fff;
+    position: absolute;
+    background: #ffffff;
     border: solid 2px black;
     border-radius: 10px;
-    opacity: 0.5;
     padding: 10px;
-    width: 80%;
-    height: 80%;
-    position: absolute;
+
+   width: 100%;
+   height: 100%;
+   top: 0; 
+   left: 0;
+   opacity: 0.25;
+    
+  
   
 }
 .bg-footer ul li{
@@ -51,4 +58,8 @@ body{
 .fab{
     color: #171717;
     font-weight: bolder;
+}
+
+.none{
+    display: none;
 }

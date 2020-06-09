@@ -102,3 +102,9 @@ function chamadaDePokemons() {
 
 
 }
+
+function buscarPokemon() {
+    let none = document.getElementById('carouselExampleControls')
+    none.classList.add('none')
+    return
+}
