@@ -52,15 +52,20 @@ body{
 }
 .fab{
     color: #171717;
-    font-weight: bolder;
-}
+    font-weight: bolder;}
 
 .none{
     display: none;
 }
 .imagemPokeBusca{
-
+    max-height: 500px;
+    border: solid 2px red;
 }
 .PokeDescricaoBloco{
-    
+    max-height: 500px;
+    border: solid 2px red;
+}
+.teste{
+    border: solid 2px red;
+    background-color: #fff !important;
 }
