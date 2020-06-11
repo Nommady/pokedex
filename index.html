@@ -38,34 +38,34 @@
         <!--Controle dos cards -->
         <!--Botao voltar-->
         <button class="controle carousel-control-prev" onclick="slidePokemonDecrescente()"
-            href="#carouselExampleControls" role="button" data-slide="prev">
+            href="#caroulselSlides" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         </button>
         <!--botao avançar-->
-        <button class="controle carousel-control-next" onclick="slidePokemonCrescente()" href="#carouselExampleControls"
+        <button class="controle carousel-control-next" onclick="slidePokemonCrescente(),limparHabilidases()" href="#caroulselSlides"
             role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </button>
         <!--/Fim do Controle dos cards -->
 
 <div id="telaDeBusca" class="container-fluid teste none">
-    <div class="container d-flex ">
+    <div class="container">
     <div class="row">
-        <div  class="col col-lg-3 col-sm-12">  
-            <img class="imagemPokeBusca"  id="imgPokeBusca" alt="">
-        </div>
-        <div class="PokeDescricaoBloco col col-lg-5 col-sm-12">
+       
+            <img class="imagemPokeBusca w-lg-50 w-sm-100 col-lg-6 col-sm-12"  id="imgPokeBusca">
+        
+        <div id="cardDeBusca" class="PokeDescricaoBloco col-lg-6 col-sm-12">
                 <h3 id="nomePokeBusca"></h3>
                 <p id="idDoPokeBusca"></p>
-                <p id="pokeDescricao"></p>
                 <p id="pokeTipoBusca"></p>
-                <ul id="pokeHabilidades"></ul>
+                <p id="pokeDescricao"></p>
+                <div id="pokeHabilidades"></div>
         </div>
     </div>
 </div>
 </div>
         <!--inicio dos card-->
-        <div id="carouselExampleControls" class="carousel" data-interval="0" data-ride="carousel">
+        <div id="caroulselSlides" class="carousel" data-interval="0" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="container-fluid">
@@ -78,8 +78,7 @@
                                         <h5 class="card-title" id="nomeDoPoke1" title="nomeDoPoke"></h5>
                                         <p class="card-title" id="idDoPoke1" title="idDoPoke"></p>
                                         <p class="card-title" id="typeDoPoke1" title="idDoPoke"></p>
-                                        <a href="#" class="btn btn-success my-1 btn-sm">Grass</a>
-                                        <a href="#" class="btn btn-danger btn-sm">Poison</a>
+                                        <div class="cardHabilidade" id="cardA"></div>
                                     </div>
                                 </div>
                             </div>
@@ -91,8 +90,7 @@
                                         <h5 class="card-title" id="nomeDoPoke2" title="nomeDoPoke"></h5>
                                         <p class="card-title" id="idDoPoke2" title="idDoPoke"></p>
                                         <p class="card-title" id="typeDoPoke2" title="idDoPoke"></p>
-                                        <a href="#" class="btn btn-success my-1 btn-sm">Grssass</a>
-                                        <a href="#" class="btn btn-danger btn-sm">Poison</a>
+                                        <div class="cardHabilidade" id="cardB"></div>
                                     </div>
                                 </div>
                             </div>
@@ -104,8 +102,7 @@
                                         <h5 class="card-title" id="nomeDoPoke3" title="nomeDoPoke"></h5>
                                         <p class="card-title" id="idDoPoke3" title="idDoPoke"></p>
                                         <p class="card-title" id="typeDoPoke3" title="idDoPoke"></p>
-                                        <a href="#" class="btn btn-success my-1 btn-sm">Grass</a>
-                                        <a href="#" class="btn btn-danger btn-sm">Poison</a>
+                                        <div class="cardHabilidade" id="cardC"></div>
                                     </div>
                                 </div>
                             </div>
