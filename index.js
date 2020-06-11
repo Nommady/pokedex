@@ -31,6 +31,7 @@ function chamadaDePokemons() {
             imgA.src = 'https://pokeres.bastionbot.org/images/pokemon/' + a + '.png'
 
             let lista = document.createElement("ul")
+            lista.id ='removerListaA'
             for (let i = 0; i < nomeDasHabilidadesA.length; i++) {
                 let itemDaLista = nomeDasHabilidadesA[i]
                 let item = document.createElement("li")
@@ -71,6 +72,7 @@ function chamadaDePokemons() {
             imgB.src = 'https://pokeres.bastionbot.org/images/pokemon/' + b + '.png'
 
             let lista = document.createElement("ul")
+            lista.id ='removerListaB'
             for (let i = 0; i < nomeDasHabilidadesB.length; i++) {
                 let itemDaLista = nomeDasHabilidadesB[i]
                 let item = document.createElement("li")
@@ -110,8 +112,9 @@ function chamadaDePokemons() {
             let imgC = document.getElementById('imgDoPoke3')
             imgC.src = 'https://pokeres.bastionbot.org/images/pokemon/' + c + '.png'
 
+
             let lista = document.createElement("ul")
-            lista.classList.add('removerLista')
+            lista.id ='removerListaC'
             for (let i = 0; i < nomeDasHabilidadesC.length; i++) {
                 let itemDaLista = nomeDasHabilidadesC[i]
                 let item = document.createElement("li")
@@ -124,8 +127,7 @@ function chamadaDePokemons() {
 
 
         })
-
-
+      
 }
 chamadaDePokemons()
 
@@ -136,19 +138,16 @@ function slidePokemonCrescente() {
     chamadaDePokemons()
  
 }
-
 function slidePokemonDecrescente() {
     a = a - 3
     b = b - 3
     c = c - 3
-    chamadaDePokemons()
-    document.getElementById('pokeHabilidades').remove()
+    chamadaDePokemons()   
 }
-
 function buscarPokemon() {
-    let none = document.getElementById('caroulselSlides')
-    none.classList.add('none')
-
+    document.getElementById('telaPrincipal').classList.add('none')
+    document.getElementById('bPrev').classList.add('none')
+    document.getElementById('bNext').classList.add('none')
     let show = document.getElementById('telaDeBusca')
     show.classList.remove('none')
 
@@ -200,6 +199,15 @@ function buscarPokemon() {
 
 
 }
-function limparHabilidases(){
-   document.getElementsByClassName('removerLista').remove()
+function fecharChamada(){
+    document.getElementById('telaPrincipal').classList.remove('none')
+    document.getElementById('telaDeBusca').classList.add('none')
+    document.getElementById('bPrev').classList.remove('none')
+    document.getElementById('bNext').classList.remove('none')
+    
+}
+function limparHabilidades(){
+ document.getElementById('removerListaA').remove()
+ document.getElementById('removerListaB').remove()
+ document.getElementById('removerListaC').remove()
 }

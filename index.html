@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
         integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
     <title>Pokedex</title>
 </head>
 
@@ -37,13 +39,11 @@
     <div id="main" class="centralizar  d-flex justify-content-around ">
         <!--Controle dos cards -->
         <!--Botao voltar-->
-        <button class="controle carousel-control-prev" onclick="slidePokemonDecrescente()"
-            href="#caroulselSlides" role="button" data-slide="prev">
+        <button id="bPrev" class="controle carousel-control-prev" onclick="slidePokemonDecrescente(),limparHabilidades()">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         </button>
         <!--botao avançar-->
-        <button class="controle carousel-control-next" onclick="slidePokemonCrescente(),limparHabilidases()" href="#caroulselSlides"
-            role="button" data-slide="next">
+        <button id="bNext" class="controle carousel-control-next" onclick="slidePokemonCrescente(),limparHabilidades()">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </button>
         <!--/Fim do Controle dos cards -->
@@ -55,20 +55,19 @@
             <img class="imagemPokeBusca w-lg-50 w-sm-100 col-lg-6 col-sm-12"  id="imgPokeBusca">
         
         <div id="cardDeBusca" class="PokeDescricaoBloco col-lg-6 col-sm-12">
+            <button onclick="fecharChamada()" class=" btn botaoCLose"><ion-icon name="close-circle-sharp"></ion-icon></button>
                 <h3 id="nomePokeBusca"></h3>
                 <p id="idDoPokeBusca"></p>
                 <p id="pokeTipoBusca"></p>
-                <p id="pokeDescricao"></p>
                 <div id="pokeHabilidades"></div>
+                <p id="pokeDescricao"></p>
+                
         </div>
     </div>
 </div>
 </div>
-        <!--inicio dos card-->
-        <div id="caroulselSlides" class="carousel" data-interval="0" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="container-fluid">
+        <!--inicio dos card-->     
+                    <div id="telaPrincipal" class="container-fluid">
                         <div class="row">
                             <!--Primeiro card-->
                             <div class="col-lg-3 mx-5 col-sm-12 py-2 ">
@@ -109,9 +108,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
     <!-- Fim do main -->
     <!--Footer-->
     <footer class="bg-footer container-fluid ">
