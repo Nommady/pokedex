@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
         integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 
     <title>Pokedex</title>
 </head>
@@ -16,104 +16,106 @@
 <body>
     <!-- Navbar content -->
 
-    <div class="col-12">
-        <a class="navbar-brand d-flex justify-content-center" href="#">
-            <img src="./img//pokemon-logo-5.png" class="opacity img-fluid" /></a>
+    <div class="container-fluid bg-dark">       
+        <a class="navbar-brand " href="#">
+            <img src="./img//pokemon-logo-5.png" /></a>       
     </div>
-    <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
             aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <ion-icon style="font-size: xx-large; color: rgb(132, 150, 204);" name="search-circle"></ion-icon>
         </button>
-        <a class="navbar-brand text-light" href="#">Poke API</a>
+        <a class="navbar-brand text-dark" href="https://pokeapi.co/">Poke API</a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active"></li>
-            </ul>            
-                <input class="form-control mr-2" id="busca" style="width: 300px;" type="search" placeholder="Nome ou Número do Pokemon">
-                <button onclick="buscarPokemon()"  class="btn btn-outline-light my-2">Buscar Pokémon</button>           
+            </ul>
+            <input class="form-control mr-2" id="busca" style="width: 300px;" type="search"
+                placeholder="Nome ou Número do Pokemon">
+            <button onclick="buscarPokemon()" class="btn btn-outline-dark my-2">Buscar Pokémon</button>
         </div>
     </nav>
+    
     <!--Fim do  Navbar content -->
     <!--Main-->
-    <div id="main" class="centralizar  d-flex justify-content-around ">
-        <!--Controle dos cards -->
-        <!--Botao voltar-->
-        <button id="bPrev" class="controle carousel-control-prev" onclick="slidePokemonDecrescente(),limparHabilidades()">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        </button>
-        <!--botao avançar-->
-        <button id="bNext" class="controle carousel-control-next" onclick="slidePokemonCrescente(),limparHabilidades()">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </button>
-        <!--/Fim do Controle dos cards -->
-
-<div id="telaDeBusca" class="container-fluid teste none">
-    <div class="container">
-    <div class="row">
-       
-            <img class="imagemPokeBusca w-lg-50 w-sm-100 col-lg-6 col-sm-12"  id="imgPokeBusca">
-        
-        <div id="cardDeBusca" class="PokeDescricaoBloco col-lg-6 col-sm-12">
-            <button onclick="fecharChamada()" class=" btn botaoCLose"><ion-icon name="close-circle-sharp"></ion-icon></button>
-                <h3 id="nomePokeBusca"></h3>
-                <p id="idDoPokeBusca"></p>
-                <p id="pokeTipoBusca"></p>
-                <div id="pokeHabilidades"></div>
-                <p id="pokeDescricao"></p>
-                
+    
+    <div id="telaDeBusca" class="container-fluid mx-auto none">
+        <div class="container">
+            <div class="row">
+                <img class="imagemPokeBusca w-lg-50 w-sm-100 col-lg-6 col-sm-12" id="imgPokeBusca">
+                <div id="cardDeBusca" class="PokeDescricaoBloco col-lg-6 col-sm-12">
+                    <button onclick="fecharChamada()" class=" btn botaoCLose">
+                        <ion-icon name="close-circle-sharp"></ion-icon>
+                    </button>
+                    <h3 id="nomePokeBusca"></h3>
+                    <p id="idDoPokeBusca"></p>
+                    <p id="pokeTipoBusca"></p>
+                    <div id="pokeHabilidades"></div>
+                    <p id="pokeDescricao"></p>
+                    
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
-        <!--inicio dos card-->     
-                    <div id="telaPrincipal" class="container-fluid">
-                        <div class="row">
-                            <!--Primeiro card-->
-                            <div class="col-lg-3 mx-5 col-sm-12 py-2 ">
-                                <div class="card">
-                                    <img class="card-img-top" id="imgDoPoke1" alt="primeiroCard">
-                                    <div class="card-body">
-                                        <h5 class="card-title" id="nomeDoPoke1" title="nomeDoPoke"></h5>
-                                        <p class="card-title" id="idDoPoke1" title="idDoPoke"></p>
-                                        <p class="card-title" id="typeDoPoke1" title="idDoPoke"></p>
-                                        <div class="cardHabilidade" id="cardA"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Segundo Card-->
-                            <div class="col-lg-3 mx-5 col-sm-12 py-2 ">
-                                <div class="card">
-                                    <img class="card-img-top" id="imgDoPoke2" alt="segundoCard">
-                                    <div class="card-body">
-                                        <h5 class="card-title" id="nomeDoPoke2" title="nomeDoPoke"></h5>
-                                        <p class="card-title" id="idDoPoke2" title="idDoPoke"></p>
-                                        <p class="card-title" id="typeDoPoke2" title="idDoPoke"></p>
-                                        <div class="cardHabilidade" id="cardB"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Terceiro Card-->
-                            <div class="col-lg-3 mx-5 col-sm-12 py-2 ">
-                                <div class="card">
-                                    <img class="card-img-top" id="imgDoPoke3" alt="terceiroCard">
-                                    <div class="card-body">
-                                        <h5 class="card-title" id="nomeDoPoke3" title="nomeDoPoke"></h5>
-                                        <p class="card-title" id="idDoPoke3" title="idDoPoke"></p>
-                                        <p class="card-title" id="typeDoPoke3" title="idDoPoke"></p>
-                                        <div class="cardHabilidade" id="cardC"></div>
-                                    </div>
-                                </div>
-                            </div>
+    
+    <div id="main" class="centralizar  d-flex justify-content-around ">
+        <!--inicio dos card-->
+        <div class="bg container-fluid d-flex justify-content-between">
+        <button id="bPrev" class="controle"
+            onclick="slidePokemonDecrescente(),limparHabilidades()">
+            <ion-icon name="play-skip-back-outline"></ion-icon>
+        </button>
+        <div id="telaPrincipal" class="container-fluid">
+            <div class="row d-flex justify-content-around">
+                <!--Primeiro card-->
+                <div class="col-lg-4 col-sm-12 py-2 ">
+                    <div class="card">
+                        <img class="card-img-top" id="imgDoPoke1" alt="primeiroCard">
+                        <div class="card-body">
+                            <h5 class="card-title" id="nomeDoPoke1" title="nomeDoPoke"></h5>
+                            <p class="card-title" id="idDoPoke1" title="idDoPoke"></p>
+                            <p class="card-title" id="typeDoPoke1" title="idDoPoke"></p>
+                            <div class="cardHabilidade" id="cardA"></div>
                         </div>
                     </div>
                 </div>
+                <!--Segundo Card-->
+                <div class="col-lg-4 col-sm-12 py-2 ">
+                    <div class="card">
+                        <img class="card-img-top" id="imgDoPoke2" alt="segundoCard">
+                        <div class="card-body">
+                            <h5 class="card-title" id="nomeDoPoke2" title="nomeDoPoke"></h5>
+                            <p class="card-title" id="idDoPoke2" title="idDoPoke"></p>
+                            <p class="card-title" id="typeDoPoke2" title="idDoPoke"></p>
+                            <div class="cardHabilidade" id="cardB"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--Terceiro Card-->
+                <div class="col-lg-4  col-sm-12 py-2 ">
+                    <div class="card">
+                        <img class="card-img-top" id="imgDoPoke3" alt="terceiroCard">
+                        <div class="card-body">
+                            <h5 class="card-title" id="nomeDoPoke3" title="nomeDoPoke"></h5>
+                            <p class="card-title" id="idDoPoke3" title="idDoPoke"></p>
+                            <p class="card-title" id="typeDoPoke3" title="idDoPoke"></p>
+                            <div class="cardHabilidade" id="cardC"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="bNext" class="controle" onclick="slidePokemonCrescente(),limparHabilidades()">
+            <ion-icon name="play-skip-forward-outline"></ion-icon>
+        </button>
+    </div>
+</div>
     <!-- Fim do main -->
     <!--Footer-->
     <footer class="bg-footer container-fluid ">
         <div class="container py-5 ">
             <div class="leftSide"></div>
-            <div class="row">
+            <div class="row ">
                 <div class="col-lg-6 ">
                     <h5 class="align-middle mt-3 mx-2"><i class=" mx-2 fas fa-user-plus"></i>Criado por Jorge Luiz</h5>
                     <ul class="mx-2">

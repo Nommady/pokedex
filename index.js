@@ -120,7 +120,7 @@ function chamadaDePokemons() {
                 let item = document.createElement("li")
                 item.innerText = itemDaLista
                 lista.append(item)
-            }
+            }            
 
             let habilidadesC = document.getElementById('cardC')
             habilidadesC.append(lista)
@@ -150,9 +150,9 @@ function buscarPokemon() {
     document.getElementById('bNext').classList.add('none')
     let show = document.getElementById('telaDeBusca')
     show.classList.remove('none')
-
+   
     let pokeBusca = document.getElementById('busca').value
-
+   
     axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeBusca}`)
         .then((resposta) => {
             const pokemonBusca = resposta.data
@@ -195,8 +195,7 @@ function buscarPokemon() {
             //https://pokeapi.co/api/v2/ability/{id or name}/
 
         })
-
-
+    
 
 }
 function fecharChamada(){
@@ -211,3 +210,5 @@ function limparHabilidades(){
  document.getElementById('removerListaB').remove()
  document.getElementById('removerListaC').remove()
 }
+
+//`https://pokeapi.co/api/v2/ability/${nskill}`
