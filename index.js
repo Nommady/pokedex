@@ -31,7 +31,7 @@ function chamadaDePokemons() {
             imgA.src = 'https://pokeres.bastionbot.org/images/pokemon/' + a + '.png'
 
             let lista = document.createElement("ul")
-            lista.id ='removerListaA'
+            lista.id = 'removerListaA'
             for (let i = 0; i < nomeDasHabilidadesA.length; i++) {
                 let itemDaLista = nomeDasHabilidadesA[i]
                 let item = document.createElement("li")
@@ -72,7 +72,7 @@ function chamadaDePokemons() {
             imgB.src = 'https://pokeres.bastionbot.org/images/pokemon/' + b + '.png'
 
             let lista = document.createElement("ul")
-            lista.id ='removerListaB'
+            lista.id = 'removerListaB'
             for (let i = 0; i < nomeDasHabilidadesB.length; i++) {
                 let itemDaLista = nomeDasHabilidadesB[i]
                 let item = document.createElement("li")
@@ -114,21 +114,22 @@ function chamadaDePokemons() {
 
 
             let lista = document.createElement("ul")
-            lista.id ='removerListaC'
+            lista.id = 'removerListaC'
             for (let i = 0; i < nomeDasHabilidadesC.length; i++) {
                 let itemDaLista = nomeDasHabilidadesC[i]
                 let item = document.createElement("li")
                 item.innerText = itemDaLista
                 lista.append(item)
-            }            
+            }
 
             let habilidadesC = document.getElementById('cardC')
             habilidadesC.append(lista)
 
 
         })
-      
+
 }
+
 chamadaDePokemons()
 
 function slidePokemonCrescente() {
@@ -136,13 +137,13 @@ function slidePokemonCrescente() {
     b = b + 3
     c = c + 3
     chamadaDePokemons()
- 
+
 }
 function slidePokemonDecrescente() {
     a = a - 3
     b = b - 3
     c = c - 3
-    chamadaDePokemons()   
+    chamadaDePokemons()
 }
 function buscarPokemon() {
     document.getElementById('telaPrincipal').classList.add('none')
@@ -150,20 +151,36 @@ function buscarPokemon() {
     document.getElementById('bNext').classList.add('none')
     let show = document.getElementById('telaDeBusca')
     show.classList.remove('none')
-   
-    let pokeBusca = document.getElementById('busca').value
-   
+
+    var pokeBusca = document.getElementById('busca').value
+
     axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeBusca}`)
         .then((resposta) => {
             const pokemonBusca = resposta.data
             let nomeDoPokeBusca = pokemonBusca.name
             let idDoPokemonBusca = pokemonBusca.id
             let nomeDasHabilidadesBusca = []
+            let nomeDosTiposBusca = [];
 
             pokemonBusca.abilities.forEach((habilidade) => {
                 nomeDasHabilidadesBusca.push(habilidade.ability.name)
             })
-            let nomeDosTiposBusca = [];
+
+            let lista = document.createElement("ul")
+            lista.id = 'listaDeBusca'
+            for (let i = 0; i < nomeDasHabilidadesBusca.length; i++) {
+                itemDaLista = nomeDasHabilidadesBusca[i]
+                let item = document.createElement("li")
+                item.innerText = itemDaLista
+                lista.append(item)
+                let habilidadesBusca = document.getElementById('cardDeBusca')
+                habilidadesBusca.append(lista)
+
+            }
+
+            let habilidadesBusca = document.getElementById('cardDeBusca')
+            habilidadesBusca.append(lista)
+
 
             pokemonBusca.types.forEach((Tipo) => {
                 nomeDosTiposBusca.push(Tipo.type.name)
@@ -181,34 +198,25 @@ function buscarPokemon() {
             let tipoBusca = document.getElementById('pokeTipoBusca')
             tipoBusca.innerHTML = (`Tipo: ${nomeDosTiposBusca}`)
 
-            var lista = document.createElement("ul")
-            for (var i = 0; i < nomeDasHabilidadesBusca.length; i++) {
-                itemDaLista = nomeDasHabilidadesBusca[i]
-                var item = document.createElement("li")
-                item.innerText = itemDaLista
-                lista.append(item)
-            }
 
-            let habilidadesBusca = document.getElementById('cardDeBusca')
-            habilidadesBusca.append(lista)
-
-            //https://pokeapi.co/api/v2/ability/{id or name}/
 
         })
-    
 
 }
-function fecharChamada(){
+function fecharChamada() {
     document.getElementById('telaPrincipal').classList.remove('none')
     document.getElementById('telaDeBusca').classList.add('none')
     document.getElementById('bPrev').classList.remove('none')
     document.getElementById('bNext').classList.remove('none')
-    
-}
-function limparHabilidades(){
- document.getElementById('removerListaA').remove()
- document.getElementById('removerListaB').remove()
- document.getElementById('removerListaC').remove()
-}
 
-//`https://pokeapi.co/api/v2/ability/${nskill}`
+}
+function limparHabilidades() {
+    document.getElementById('removerListaA').remove()
+    document.getElementById('removerListaB').remove()
+    document.getElementById('removerListaC').remove()
+}
+function resetInput(){
+    var pesquisaPokemon = document.getElementById('busca')
+    pesquisaPokemon.value = ""
+    document.getElementById('listaDeBusca').remove()
+  }
