@@ -161,6 +161,15 @@ function buscarPokemon() {
             let idDoPokemonBusca = pokemonBusca.id
             let nomeDasHabilidadesBusca = []
             let nomeDosTiposBusca = [];
+            var url = pokemonBusca.species.url
+
+            axios.get(url)
+                .then((resposta)=>{
+                    var descricaoDoPoke = resposta.data.flavor_text_entries[0].flavor_text
+                    document.getElementById('pokeDescricao').innerHTML = descricaoDoPoke
+                })
+
+
 
             pokemonBusca.abilities.forEach((habilidade) => {
                 nomeDasHabilidadesBusca.push(habilidade.ability.name)
@@ -172,16 +181,17 @@ function buscarPokemon() {
                 itemDaLista = nomeDasHabilidadesBusca[i]
                 let item = document.createElement("li")
                 item.innerText = itemDaLista
-                lista.append(item)
-                let habilidadesBusca = document.getElementById('cardDeBusca')
+                axios.get('https://pokeapi.co/api/v2/ability/' + nomeDasHabilidadesBusca[i])
+                    .then((resposta) => {
+                        var poke = resposta.data
+                        var descHabilit =  poke.effect_entries[1].effect               
+                        
+                        lista.append(item, descHabilit)
+                    })                
+
+                let habilidadesBusca = document.getElementById('pokeHabilidades')
                 habilidadesBusca.append(lista)
-
             }
-
-            let habilidadesBusca = document.getElementById('cardDeBusca')
-            habilidadesBusca.append(lista)
-
-
             pokemonBusca.types.forEach((Tipo) => {
                 nomeDosTiposBusca.push(Tipo.type.name)
             })
@@ -215,8 +225,8 @@ function limparHabilidades() {
     document.getElementById('removerListaB').remove()
     document.getElementById('removerListaC').remove()
 }
-function resetInput(){
+function resetInput() {
     var pesquisaPokemon = document.getElementById('busca')
     pesquisaPokemon.value = ""
     document.getElementById('listaDeBusca').remove()
-  }
+}
