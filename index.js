@@ -10,7 +10,7 @@ function chamadaDePokemons() {
             let nomeDoPokeA = pokemonA.name
             let idDoPokemonA = pokemonA.id
             let nomeDasHabilidadesA = []
-
+            document.getElementById('primeiroCard').value = idDoPokemonA           
             pokemonA.abilities.forEach((habilidade) => {
                 nomeDasHabilidadesA.push(habilidade.ability.name)
             })
@@ -52,7 +52,7 @@ function chamadaDePokemons() {
             let nomeDoPokeB = pokemonB.name
             let idDoPokemonB = pokemonB.id
             let nomeDasHabilidadesB = []
-
+            document.getElementById('segundoCard').value = idDoPokemonB
             pokemonB.abilities.forEach((habilidade) => {
                 nomeDasHabilidadesB.push(habilidade.ability.name)
             })
@@ -94,10 +94,11 @@ function chamadaDePokemons() {
             let nomeDoPokeC = pokemonC.name
             let idDoPokemonC = pokemonC.id
             let nomeDasHabilidadesC = []
-
+           
             pokemonC.abilities.forEach((habilidade) => {
                 nomeDasHabilidadesC.push(habilidade.ability.name)
             })
+            document.getElementById('terceiroCard').value = idDoPokemonC
             let nomeDosTiposC = [];
 
             pokemonC.types.forEach((Tipo) => {
@@ -149,18 +150,20 @@ function slidePokemonDecrescente() {
     chamadaDePokemons()
 }
 
-console.log(idDoPokemonA)
 
 function buscarPokemon() {
     document.getElementById('main').classList.add('none')
    
     let show = document.getElementById('telaDeBusca')
     show.classList.remove('none')
-
-     pokeBusca = document.getElementById('busca').value
-
+    
+    var pokeBusca = document.getElementById('busca').value 
     pokeBusca = pokeBusca.toLowerCase()
-
+    
+    if(pokeBusca > 807 || pokeBusca ==""){
+        alert('Digite um número entre 1 a 807 para continuar!')
+    }
+    
     axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeBusca}`)
         .then((resposta) => {
             const pokemonBusca = resposta.data
@@ -217,7 +220,9 @@ function buscarPokemon() {
 
         })
 
+
 }
+
 function fecharChamada() {
     document.getElementById('main').classList.remove('none')
     document.getElementById('telaDeBusca').classList.add('none')

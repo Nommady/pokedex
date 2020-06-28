@@ -31,9 +31,9 @@
  .cardHabilidade ul{
      list-style: none;
      margin-left: -15px;
-     overflow-y: scroll ;
-
- }
+     overflow:  hidden;
+     height: 175px;
+}
  ::-webkit-scrollbar {
     width: 0px;
 }
@@ -63,11 +63,12 @@
     border-bottom: solid 2px rgba(34, 34, 34, 0.336);
 }
 .botaoCLose{
+border: none;
+font-size: 50px;
+background-color: white;
+color: #222;
 
 }
-
-
-
 
 
 /* footer */
