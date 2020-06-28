@@ -2,109 +2,93 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'MuseoModerno', cursive;
 }
-#telaPrincipal{
-    
-    border-top: solid 10px rgba(255, 255, 255, 0);
-    border-bottom:  solid 10px rgba(255, 255, 255, 0);
+/* logo */
+.logo{
+    font-size: 50px;
+    font-family: 'MuseoModerno', cursive;
+    color: #222;
+    text-shadow: 3px 1px 3px rgb(150, 225, 255);
+    background-color: #e5fafa;
+    text-align: center;
+    margin-bottom: 1px;
+
 }
-.centralizar{
-    margin-top: 5px;
-    position: relative;      
-}
+/* card */
 .card{
-    border: solid 5px rgba(113, 172, 180, 0.452);
-    margin:10px;
-    width: 250px; 
-    min-height: 500px;
+    width: 200px;
+    height: 500px;
+    border: none;
+ }
+ .card-img-top{
+     padding: 10px;
+ }
+ .card-title{
+     font-size: 20px;
+     margin-left: -15px;
+ }
+ .cardHabilidade ul{
+     list-style: none;
+     margin-left: -15px;
+     overflow-y: scroll ;
+
+ }
+ ::-webkit-scrollbar {
+    width: 0px;
 }
-.bg{
-    padding: 0;
-    margin: 0;
-    background: linear-gradient(90deg, rgb(132, 150, 240) 10%, rgb(234, 239, 245) 84%);
+/* controle */
+.cardBusca{
+    border-bottom: solid 2px rgba(34, 34, 34, 0.336);
 }
 .controle{
-    margin: 18px;
-    width: 50px;
-    background-color:rgba(255, 255, 255, 0);
-    border: solid 1px rgb(250, 250, 250);
-    height: 450px;
-}
-.bg-footer{
-    position: relative;
-    background-image: url(./img/bg-centralizar.jpg);
-    color: rgb(0, 0, 0);
-    font-weight: bolder;   
-    border-top: solid 10px rgba(255, 255, 255, 0.788) ;
+    padding: 10px;
+    border: none;
+    margin: 5px 0px;
+    background-color: #e5fafa;
     
 }
-.leftSide{
-    position: absolute;
-    background: #ffffff;
-    border: solid 2px black;
-    border-radius: 10px;
-    padding: 10px;
-   width: 100%;
-   height: 100%;
-   top: 0; 
-   left: 0;
-   opacity: 0.25;  
+/* card de busca */
+#telaDeBusca{
+    margin-top: 10px;
+}
+#pokeHabilidades ul{
+    list-style: none;
+    margin: 5px;
+}
+#pokeHabilidades ul li{
+    list-style: none;
+    margin: 5px;
+    font-weight: 700;
+    border-bottom: solid 2px rgba(34, 34, 34, 0.336);
+}
+.botaoCLose{
+
+}
+
+
+
+
+
+/* footer */
+.bg-footer{
+    background-color: #e5fafa;
+    border: solid 2px #eee;
+    padding-bottom: 40px
+}
+.bg-footer ul{
+    width: 250px;
 }
 .bg-footer ul li{
     list-style: none;
 }
 .bg-footer ul li a{
-    text-decoration: none;
-    color: rgb(7, 7, 7);
-    font-weight: bolder;
+   color: black;
 }
 .fab{
-    color: #171717;
-    font-weight: bolder;}
-
+    font-size: 30px;
+}
+/* função */
 .none{
     display: none;
-}
-.imagemPokeBusca{
-    background-color: rgb(250, 250, 250);
-   
-}
-#pokeHabilidade{
-    background-color: rgba(202, 201, 201, 0.842);
-}
-
-#cardDeBusca ul{
-    list-style: none;
-    
-}
-#cardDeBusca ul li{
-    border: solid 2px rgb(167, 156, 233);
-    margin: 5px;
-    padding: 5px;
-    background-color: rgb(176, 200, 211);   
-    border-radius: 10%; 
-    color: rgb(102, 88, 88);
-}
-#cardDeBusca ul li:hover{
-    border: solid 2px rgb(8, 8, 8);    
-    background-color: rgb(18, 18, 19); 
-    color: rgb(250, 250, 250);
-}
-.cardHabilidade ul li{
-    list-style: none;
-    background-color: rgba(202, 201, 201, 0.404);
-    border: solid 2px gray;
-    float: left;
-    padding: 1px;
-    margin: 2px;
-}
-.botaoCLose{
-    float: right;
-    background-color: rgb(253, 252, 252);
-    color: rgb(133, 176, 187);
-    font-size: 3em;
-}
-.controle{
-    font-size: xx-large;
-    border: solid 2px gray;
 }

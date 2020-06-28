@@ -1,10 +1,10 @@
-var a = 1
-var b = 2
-var c = 3
+var primeiroCard = 1
+var segundoCard = 2
+var terceiroCard = 3
 
 function chamadaDePokemons() {
     //Primeiro Card
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${a}`)
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${primeiroCard}`)
         .then((resposta) => {
             const pokemonA = resposta.data
             let nomeDoPokeA = pokemonA.name
@@ -14,21 +14,22 @@ function chamadaDePokemons() {
             pokemonA.abilities.forEach((habilidade) => {
                 nomeDasHabilidadesA.push(habilidade.ability.name)
             })
-            let nomeDosTiposA = [];
+             
+            var NomeEId = (`#${idDoPokemonA} - ${nomeDoPokeA}`) 
+            let nomeA = document.getElementById('nomdEID')
+            nomeA.innerHTML = NomeEId
 
+            let nomeDosTipos = [];
             pokemonA.types.forEach((Tipo) => {
-                nomeDosTiposA.push(Tipo.type.name)
-            })
-
+                nomeDosTipos.push(Tipo.type.name)
+            }) 
+            
             let tipoA = document.getElementById('typeDoPoke1')
-            tipoA.innerHTML = (`Tipo: ${nomeDosTiposA}`)
+            tipoA.innerHTML = (nomeDosTipos)
 
-            let nomeA = document.getElementById('nomeDoPoke1')
-            nomeA.innerHTML = nomeDoPokeA.toUpperCase()
-            let idA = document.getElementById('idDoPoke1')
-            idA.innerHTML = (`#${idDoPokemonA}`)
+
             let imgA = document.getElementById('imgDoPoke1')
-            imgA.src = 'https://pokeres.bastionbot.org/images/pokemon/' + a + '.png'
+            imgA.src = 'https://pokeres.bastionbot.org/images/pokemon/' + idDoPokemonA + '.png'
 
             let lista = document.createElement("ul")
             lista.id = 'removerListaA'
@@ -45,7 +46,7 @@ function chamadaDePokemons() {
 
         })
     //Segundo Card
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${b}`)
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${segundoCard}`)
         .then((resposta) => {
             const pokemonB = resposta.data
             let nomeDoPokeB = pokemonB.name
@@ -62,14 +63,15 @@ function chamadaDePokemons() {
             })
 
             let tipoB = document.getElementById('typeDoPoke2')
-            tipoB.innerHTML = (`Tipo: ${nomeDosTiposB}`)
+            tipoB.innerHTML = (`${nomeDosTiposB}`)
 
-            let nomeB = document.getElementById('nomeDoPoke2')
-            nomeB.innerHTML = nomeDoPokeB.toUpperCase()
-            let idB = document.getElementById('idDoPoke2')
-            idB.innerHTML = (`#${idDoPokemonB}`)
+            var NomeEId2 = (`#${idDoPokemonB} - ${nomeDoPokeB}`) 
+            let nomeB = document.getElementById('nomdEID2')
+            nomeB.innerHTML = NomeEId2
+
+
             let imgB = document.getElementById('imgDoPoke2')
-            imgB.src = 'https://pokeres.bastionbot.org/images/pokemon/' + b + '.png'
+            imgB.src = 'https://pokeres.bastionbot.org/images/pokemon/' + idDoPokemonB + '.png'
 
             let lista = document.createElement("ul")
             lista.id = 'removerListaB'
@@ -86,7 +88,7 @@ function chamadaDePokemons() {
 
         })
     //Terceiro Card
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${c}`)
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${terceiroCard}`)
         .then((resposta) => {
             const pokemonC = resposta.data
             let nomeDoPokeC = pokemonC.name
@@ -103,14 +105,15 @@ function chamadaDePokemons() {
             })
 
             let tipoC = document.getElementById('typeDoPoke3')
-            tipoC.innerHTML = (`Tipo: ${nomeDosTiposC}`)
+            tipoC.innerHTML = (` ${nomeDosTiposC}`)
 
-            let nomeC = document.getElementById('nomeDoPoke3')
-            nomeC.innerHTML = nomeDoPokeC.toUpperCase()
-            let idC = document.getElementById('idDoPoke3')
-            idC.innerHTML = (`#${idDoPokemonC}`)
+            var NomeEId3 = (`#${idDoPokemonC} - ${nomeDoPokeC}`) 
+            let nomeC = document.getElementById('nomeEID3')
+            nomeC.innerHTML = NomeEId3
+
+
             let imgC = document.getElementById('imgDoPoke3')
-            imgC.src = 'https://pokeres.bastionbot.org/images/pokemon/' + c + '.png'
+            imgC.src = 'https://pokeres.bastionbot.org/images/pokemon/' + idDoPokemonC + '.png'
 
 
             let lista = document.createElement("ul")
@@ -133,26 +136,27 @@ function chamadaDePokemons() {
 chamadaDePokemons()
 
 function slidePokemonCrescente() {
-    a = a + 3
-    b = b + 3
-    c = c + 3
+    primeiroCard = primeiroCard + 3
+    segundoCard = segundoCard + 3
+    terceiroCard = terceiroCard + 3
     chamadaDePokemons()
 
 }
 function slidePokemonDecrescente() {
-    a = a - 3
-    b = b - 3
-    c = c - 3
+    primeiroCard = primeiroCard - 3
+    segundoCard = segundoCard - 3
+    terceiroCard = terceiroCard - 3
     chamadaDePokemons()
 }
 function buscarPokemon() {
-    document.getElementById('telaPrincipal').classList.add('none')
-    document.getElementById('bPrev').classList.add('none')
-    document.getElementById('bNext').classList.add('none')
+    document.getElementById('main').classList.add('none')
+   
     let show = document.getElementById('telaDeBusca')
     show.classList.remove('none')
 
     var pokeBusca = document.getElementById('busca').value
+
+    pokeBusca = pokeBusca.toLowerCase()
 
     axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeBusca}`)
         .then((resposta) => {
@@ -199,11 +203,9 @@ function buscarPokemon() {
             let imgBusca = document.getElementById('imgPokeBusca')
             imgBusca.src = 'https://pokeres.bastionbot.org/images/pokemon/' + pokemonBusca.id + '.png'
 
-            let nomeBusca = document.getElementById('nomePokeBusca')
-            nomeBusca.innerHTML = nomeDoPokeBusca.toUpperCase()
-
-            let idBusca = document.getElementById('idDoPokeBusca')
-            idBusca.innerHTML = (`#${idDoPokemonBusca}`)
+            var NomeEIdBUsca = (`#${idDoPokemonBusca} - ${nomeDoPokeBusca}`) 
+            let nomeBusca = document.getElementById('nomeEIdBusca')
+            nomeBusca.innerHTML = NomeEIdBUsca
 
             let tipoBusca = document.getElementById('pokeTipoBusca')
             tipoBusca.innerHTML = (`Tipo: ${nomeDosTiposBusca}`)
@@ -214,7 +216,7 @@ function buscarPokemon() {
 
 }
 function fecharChamada() {
-    document.getElementById('telaPrincipal').classList.remove('none')
+    document.getElementById('main').classList.remove('none')
     document.getElementById('telaDeBusca').classList.add('none')
     document.getElementById('bPrev').classList.remove('none')
     document.getElementById('bNext').classList.remove('none')

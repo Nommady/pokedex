@@ -9,148 +9,140 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
         integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <title>Pokedex</title>
 </head>
 
 <body>
     <!-- Navbar content -->
-
-    <div class="container-fluid bg-dark">       
-        <a class="navbar-brand " href="#">
-            <img src="./img//pokemon-logo-5.png" style="width: 50%;" /></a>       
-    </div>
-    <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+    <h1 class="logo">Pokedex</h1>
+    <nav class="navbar navbar-expand-lg" style="background-color: #e5fafa;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
             aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <ion-icon style="font-size: xx-large; color: rgb(132, 150, 204);" name="search-circle"></ion-icon>
         </button>
-        <a class="navbar-brand text-dark" href="https://pokeapi.co/">Poke API</a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active"></li>
             </ul>
-            <input class="form-control mr-2" id="busca" style="width: 300px;" type="search"
+            <input class="form-control mr-2" id="busca" style="width: 85%;" type="search"
                 placeholder="Nome ou Número do Pokemon">
             <button onclick="buscarPokemon(),resetInput()" class="btn btn-outline-dark my-2">Buscar Pokémon</button>
         </div>
     </nav>
-    
+
     <!--Fim do  Navbar content -->
     <!--Main-->
-    
+
     <div id="telaDeBusca" class="container-fluid mx-auto none">
-        <div class="container">
-            <div class="row">
-                <img class="imagemPokeBusca w-lg-50 w-sm-100 col-lg-6 col-sm-12" id="imgPokeBusca">
-                <div id="cardDeBusca" class="PokeDescricaoBloco col-lg-6 col-sm-12">
-                    <button onclick="fecharChamada()" class=" btn botaoCLose">
+        <div class="container cardBusca">
+            <div class="row ">
+                <img class="imagemPokeBusca w-lg-50 w-sm-100 mb-2 col-lg-6 col-sm-12" id="imgPokeBusca">
+                <div id="cardDeBusca" class=" col-lg-6 col-sm-12">
+                    <button onclick="fecharChamada()" class=" btn float-right botaoCLose">
                         <ion-icon name="close-circle-sharp"></ion-icon>
                     </button>
-                    <h3 id="nomePokeBusca"></h3>
-                    <p id="idDoPokeBusca"></p>
+                    <h3 id="nomeEIdBusca"></h3>
+                   
                     <p id="pokeTipoBusca"></p>
                     <p id="pokeDescricao"></p>
                     <div id="pokeHabilidades"></div>
-                    
+
                 </div>
             </div>
         </div>
     </div>
-    
-    <div id="main" class="centralizar  d-flex justify-content-around ">
+
+    <div id="main" class=" d-flex justify-content-around ">
         <!--inicio dos card-->
         <div class="bg container-fluid d-flex justify-content-between">
-        <button id="bPrev" class="controle"
-            onclick="slidePokemonDecrescente(),limparHabilidades()">
-            <ion-icon name="play-skip-back-outline"></ion-icon>
-        </button>
-        <div id="telaPrincipal" class="container-fluid">
-            <div class="row d-flex justify-content-around">
-                <!--Primeiro card-->
-                <div class="col-lg-4 col-sm-12 py-2 ">
-                    <div class="card">
-                        <img class="card-img-top" id="imgDoPoke1" alt="primeiroCard">
-                        <div class="card-body">
-                            <h5 class="card-title" id="nomeDoPoke1" title="nomeDoPoke"></h5>
-                            <p class="card-title" id="idDoPoke1" title="idDoPoke"></p>
-                            <p class="card-title" id="typeDoPoke1" title="idDoPoke"></p>
-                            <div class="cardHabilidade" id="cardA"></div>
+            <button id="bPrev" class="controle" onclick="slidePokemonDecrescente(),limparHabilidades()">
+                <ion-icon name="play-skip-back-outline"></ion-icon>
+            </button>
+            <div class="container-fluid">
+                <div class="row d-flex justify-content-around">
+                    <!--Primeiro card-->
+                    <div class="col-lg-2 col-sm-12 py-2 ">
+                        <div class="card">
+                            <img class="card-img-top" id="imgDoPoke1" alt="primeiroCard">
+                            <div class="card-body">
+                                <p class="card-title " id="nomdEID"> </p>
+
+                                <p class="card-title" id="typeDoPoke1"></p>
+
+                                <div class="cardHabilidade" id="cardA"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!--Segundo Card-->
-                <div class="col-lg-4 col-sm-12 py-2 ">
-                    <div class="card">
-                        <img class="card-img-top" id="imgDoPoke2" alt="segundoCard">
-                        <div class="card-body">
-                            <h5 class="card-title" id="nomeDoPoke2" title="nomeDoPoke"></h5>
-                            <p class="card-title" id="idDoPoke2" title="idDoPoke"></p>
-                            <p class="card-title" id="typeDoPoke2" title="idDoPoke"></p>
-                            <div class="cardHabilidade" id="cardB"></div>
+                    <!--Segundo Card-->
+                    <div class="col-lg-2 col-sm-12 py-2 ">
+                        <div class="card">
+                            <img class="card-img-top" id="imgDoPoke2" alt="segundoCard">
+                            <div class="card-body">
+                                <p class="card-title" id="nomdEID2" ></p>
+                                
+                                <p class="card-title" id="typeDoPoke2"></p>
+
+                                <div class="cardHabilidade" id="cardB"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!--Terceiro Card-->
-                <div class="col-lg-4  col-sm-12 py-2 ">
-                    <div class="card">
-                        <img class="card-img-top" id="imgDoPoke3" alt="terceiroCard">
-                        <div class="card-body">
-                            <h5 class="card-title" id="nomeDoPoke3" title="nomeDoPoke"></h5>
-                            <p class="card-title" id="idDoPoke3" title="idDoPoke"></p>
-                            <p class="card-title" id="typeDoPoke3" title="idDoPoke"></p>
-                            <div class="cardHabilidade" id="cardC"></div>
+                    <!--Terceiro Card-->
+                    <div class="col-lg-2  col-sm-12 py-2 ">
+                        <div class="card">
+                            <img class="card-img-top" id="imgDoPoke3" alt="terceiroCard">
+                            <div class="card-body">
+                                <p class="card-title" id="nomeEID3" ></p>
+                             
+                                <p class="card-title" id="typeDoPoke3" ></p>
+
+                                <div class="cardHabilidade" id="cardC"></div>
+                            </div>
                         </div>
                     </div>
+
+
                 </div>
             </div>
+            <button id="bNext" class="controle" onclick="slidePokemonCrescente(),limparHabilidades()">
+                <ion-icon name="play-skip-forward-outline"></ion-icon>
+            </button>
         </div>
-        <button id="bNext" class="controle" onclick="slidePokemonCrescente(),limparHabilidades()">
-            <ion-icon name="play-skip-forward-outline"></ion-icon>
-        </button>
     </div>
-</div>
     <!-- Fim do main -->
     <!--Footer-->
     <footer class="bg-footer container-fluid ">
-        <div class="container py-5 ">
-            <div class="leftSide"></div>
+        <div class="container-fluid d-flex justify-content-around py-1 ">
             <div class="row ">
                 <div class="col-lg-6 ">
-                    <h5 class="align-middle mt-3 mx-2"><i class=" mx-2 fas fa-user-plus"></i>Criado por Jorge Luiz</h5>
-                    <ul class="mx-2">
+                    <h5 class="align-middle mt-3 mx-2"><i class=" mx-2 fas fa-user-plus"></i>Jorge Luiz</h5>
+                    <ul class="mx-1">
                         <li><i class=" mx-2 my-2 fab fa-linkedin"></i><a
                                 href="https://www.linkedin.com/in/jorge-luiz-carvalho-dos-santos"
-                                target="blank">LinkedIn</a></li>
-                        <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/Nommady" target="blank">
-                                GitHub</a></li>
-                        <li><i class=" mx-2 my-2 fab fa-twitter"></i><a href="https://twitter.com/dev_luiz"
-                                target="blank">Twitter</a></li>
-                        <li><i class="mx-2 my-2 fab fa-codepen"></i><a href="https://codepen.io/Nommady"
-                                target="blank">CodePen</a></li>
-                        <li><i class="mx-2 my-2 fab fa-instagram"></i><a href="https://www.instagram.com/dev_jorgeluiz/"
-                                target="blank">Instagram</a></li>
+                                target="blank">@dev_jorgeluiz</a></li>
+                        <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/Nommady"
+                                target="blank">@dev_jorgeluiz</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-6">
-                    <h5 class="align-middle mt-3"><i class=" mx-2 fas fa-user-plus"></i>Criado por Hugo Felipe</h5>
-                    <ul>
+                    <h5 class="align-middle mt-3"><i class=" mx-2 fas fa-user-plus"></i>Hugo Felipe</h5>
+                    <ul class="mx-1">
                         <li><i class=" mx-2 my-2 fab fa-linkedin"></i><a
-                                href="https://www.linkedin.com/in/felipeamanajas" target="blank">LinkedIn</a></li>
+                                href="https://www.linkedin.com/in/felipeamanajas" target="blank">@felipeamanajas</a>
+                        </li>
                         <li><i class=" mx-2 my-2 fab fa-github"></i><a href="https://github.com/felipeamanajas"
-                                target="blank"> GitHub</a></li>
-                        <li><i class=" mx-2 my-2 fab fa-twitter"></i><a href="https://twitter.com/felipeamanajas"
-                                target="blank">Twitter</a></li>
-                        <li><i class="mx-2 my-2 fab fa-codepen"></i><a href="https://codepen.io/felipeamanajas"
-                                target="blank">CodePen</a></li>
-                        <li><i class="mx-2 my-2 fab fa-instagram"></i><a
-                                href="https://www.instagram.com/felipeamanajas/" target="blank">Instagram</a></li>
+                                target="blank">@felipeamanajas</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         </div>
     </footer>
+    <a class="navbar-brand bg-light d-flex justify-content-center  text-dark" target="blank"
+        href="https://pokeapi.co/">Desenvolvido com Poke API</a>
     <!--Fim de footer-->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
