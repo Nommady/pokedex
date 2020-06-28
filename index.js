@@ -154,10 +154,13 @@ function buscarPokemon() {
     let show = document.getElementById('telaDeBusca')
     show.classList.remove('none')
 
-    var pokeBusca = document.getElementById('busca').value
-
+    var pokeBusca = document.getElementById('busca').value 
     pokeBusca = pokeBusca.toLowerCase()
-
+    
+    if(pokeBusca > 807 || pokeBusca ==""){
+        alert('Digite um número entre 1 a 807 para continuar!')
+    }
+    
     axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeBusca}`)
         .then((resposta) => {
             const pokemonBusca = resposta.data
@@ -215,6 +218,10 @@ function buscarPokemon() {
         })
 
 }
+
+
+
+
 function fecharChamada() {
     document.getElementById('main').classList.remove('none')
     document.getElementById('telaDeBusca').classList.add('none')
