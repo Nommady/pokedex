@@ -148,13 +148,16 @@ function slidePokemonDecrescente() {
     terceiroCard = terceiroCard - 3
     chamadaDePokemons()
 }
+
+console.log(idDoPokemonA)
+
 function buscarPokemon() {
     document.getElementById('main').classList.add('none')
    
     let show = document.getElementById('telaDeBusca')
     show.classList.remove('none')
 
-    var pokeBusca = document.getElementById('busca').value
+     pokeBusca = document.getElementById('busca').value
 
     pokeBusca = pokeBusca.toLowerCase()
 
