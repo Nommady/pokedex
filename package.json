@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Nommady/pokedex#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "jquery": "^3.5.1",
     "readline-sync": "^1.4.10",
     "requirejs": "^2.3.6",
     "startbootstrap": "0.0.1"
