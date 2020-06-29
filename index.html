@@ -14,11 +14,14 @@
         rel="stylesheet">
 
     <title>Pokedex</title>
+    <link rel="shortcut icon" href="./img/favicon.ico" />
+
 </head>
 
 <body>
     <!-- Navbar content -->
     <h1 class="logo">Pokedex</h1>
+        
     <nav class="navbar navbar-expand-lg" style="background-color: #e5fafa;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
             aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +48,7 @@
                     <button onclick="fecharChamada()" class=" btn float-right botaoCLose">
                         <ion-icon name="close-circle-sharp"></ion-icon>
                     </button>
-                    <h3 id="nomeEIdBusca"></h3>                   
+                    <h3 id="nomeEIdBusca"></h3>
                     <p id="pokeTipoBusca"></p>
                     <p id="pokeDescricao"></p>
                     <div id="pokeHabilidades"></div>
@@ -81,8 +84,8 @@
                         <div class="card" id="segundoCard" onclick="pokemonCompleto2(),resetInput()">
                             <img class="card-img-top" id="imgDoPoke2" alt="segundoCard">
                             <div class="card-body">
-                                <p class="card-title" id="nomdEID2" ></p>
-                                
+                                <p class="card-title" id="nomdEID2"></p>
+
                                 <p class="card-title" id="typeDoPoke2"></p>
 
                                 <div class="cardHabilidade" id="cardB"></div>
@@ -94,9 +97,9 @@
                         <div class="card" id='terceiroCard' onclick="pokemonCompleto3(),resetInput()">
                             <img class="card-img-top" id="imgDoPoke3" alt="terceiroCard">
                             <div class="card-body">
-                                <p class="card-title" id="nomeEID3" ></p>
-                             
-                                <p class="card-title" id="typeDoPoke3" ></p>
+                                <p class="card-title" id="nomeEID3"></p>
+
+                                <p class="card-title" id="typeDoPoke3"></p>
 
                                 <div class="cardHabilidade" id="cardC"></div>
                             </div>
@@ -140,9 +143,28 @@
         </div>
         </div>
     </footer>
-    <a class="navbar-brand bg-light d-flex justify-content-center  text-dark" target="blank"
-        href="https://pokeapi.co/">Desenvolvido com Poke API</a>
+
+    <!-- creditos -->
+
+    <div class="navbar-brand bg-dark d-flex justify-content-center text-light container-fluid py-3 ">
+        <div class="creditos ">
+            
+            <div class="text-center">
+                <p>Criado com <a class="poke-api" href="https://pokeapi.co/" target="_blank"> Poke API </a></p>
+            </div>
+    
+            <div class="text-center" class="img-arbyte">
+                <p><a href="https://www.arbyte.com.br/"target=" _blank"><img class="img-arbyte"
+                            src="./img/logo-arbyte.png"></a></p>
+                </div>
+    
+        </div>
+    </div>
+
+    <!-- creditos -->
+
     <!--Fim de footer-->
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>

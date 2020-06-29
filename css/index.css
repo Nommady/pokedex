@@ -79,17 +79,39 @@ color: #222;
 }
 .bg-footer ul{
     width: 250px;
+
+    
 }
 .bg-footer ul li{
     list-style: none;
 }
 .bg-footer ul li a{
    color: black;
+
+   
 }
 .fab{
     font-size: 30px;
+    
 }
 /* função */
 .none{
     display: none;
 }
+
+.img-arbyte {
+    width: 100px;
+    height: auto;
+  }
+  
+  ::-moz-selection { /* Code for Firefox */
+    color: #424242;
+    background: #e5fafa;
+  }
+  
+  ::selection {
+    color: #424242;
+    background: #e5fafa;
+  }
+  
+  
