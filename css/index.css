@@ -75,11 +75,12 @@ color: #222;
 .bg-footer{
     background-color: #e5fafa;
     border: solid 2px #eee;
-    padding-bottom: 40px
+    padding-bottom: 20px;
+    padding-top: 30px;
+    
 }
 .bg-footer ul{
-    width: 250px;
-
+    width: 200px;
     
 }
 .bg-footer ul li{
@@ -100,18 +101,14 @@ color: #222;
 }
 
 .img-arbyte {
-    width: 100px;
-    height: auto;
+    width: 50%;
+    height: 50%;
   }
   
-  ::-moz-selection { /* Code for Firefox */
-    color: #424242;
-    background: #e5fafa;
-  }
-  
-  ::selection {
-    color: #424242;
-    background: #e5fafa;
+#creditos {
+    margin-top: 1%;
+    line-height: 5;
+    padding: 5;
   }
   
   
