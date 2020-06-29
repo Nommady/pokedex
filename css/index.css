@@ -5,21 +5,26 @@
     font-family: 'MuseoModerno', cursive;
 }
 /* logo */
+
 .logo{
     font-size: 50px;
     font-family: 'MuseoModerno', cursive;
-    color: #222;
-    text-shadow: 3px 1px 3px rgb(150, 225, 255);
     background-color: #e5fafa;
     text-align: center;
     margin-bottom: 1px;
-
 }
+.logo a{
+    text-decoration: none;
+    color: #222;
+    text-shadow: 3px 1px 3px rgb(89, 129, 145);
+}
+
 /* card */
 .card{
     width: 200px;
     height: 500px;
     border: none;
+    cursor: pointer;
  }
  .card-img-top{
      padding: 10px;
@@ -46,6 +51,7 @@
     border: none;
     margin: 5px 0px;
     background-color: #e5fafa;
+    cursor: pointer;
     
 }
 /* card de busca */
@@ -93,7 +99,16 @@ color: #222;
 }
 .fab{
     font-size: 30px;
-    
+}
+/*creditos  */
+
+#creditos li {
+    margin-top: 5px;
+    height: 30px;
+}
+#creditos a{
+    color: black;
+    text-decoration: none;
 }
 /* função */
 .none{
@@ -105,10 +120,5 @@ color: #222;
     height: 50%;
   }
   
-#creditos {
-    margin-top: 1%;
-    line-height: 5;
-    padding: 5;
-  }
-  
+
   

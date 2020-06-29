@@ -150,7 +150,6 @@ function slidePokemonDecrescente() {
     chamadaDePokemons()
 }
 
-
 function buscarPokemon() {
     document.getElementById('main').classList.add('none')
    
@@ -223,7 +222,15 @@ function buscarPokemon() {
 
 }
 
-function fecharChamada() {
+let busca = document.getElementById('busca')
+ busca.addEventListener('keypress', function(e){
+    if(e.which == 13){
+        buscarPokemon()
+        resetInput()
+    }
+ }, false);
+
+ function fecharChamada() {
     document.getElementById('main').classList.remove('none')
     document.getElementById('telaDeBusca').classList.add('none')
     document.getElementById('bPrev').classList.remove('none')
@@ -240,3 +247,33 @@ function resetInput() {
     pesquisaPokemon.value = ""
     document.getElementById('listaDeBusca').remove()
 }
+
+$(function(){
+    axios.get("https://pokeapi.co/api/v2/pokemon?limit=807")
+    .then((resp)=>{
+       var pokemon = resp.data.results
+       var pokeNome = [];
+       //var url =[]
+       
+       pokemon.forEach((nome)=>{
+           pokeNome.push(nome.name)
+           })
+        
+    //    pokemon.forEach((urls) => {
+    //        var split = urls.url.split('/');
+    //        var num = split[split.length - 2];
+    //        var img ='http://assets.pokemon.com/assets/cms2/img/pokedex/full/' + num.padStart(3, "0") + ".png";
+    //     url.push(img)      
+    // });
+    
+    //     var pokemonsComplete =[]
+    //     for(var i = 0; i< pokeNome.length;i++){
+    //         pokemonsComplete.push(pokeNome[i], url[i])
+
+    //     }
+    //console.log(pokemonsComplete)
+    $('#busca').autocomplete({
+        source: pokeNome
+    })
+    })
+})
