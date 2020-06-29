@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
         integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-    <link rel="stylesheet" href="/resources/demos/style.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  
+   
 
     <link
         href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -165,6 +164,40 @@
         </li>
     </ul>
     <!--Fim de footer-->
+
+
+<script>
+    $(function(){
+    axios.get("https://pokeapi.co/api/v2/pokemon?limit=807")
+    .then((resp)=>{
+       var pokemon = resp.data.results
+       var pokeNome = [];
+       //var url =[]
+       
+       pokemon.forEach((nome)=>{
+           pokeNome.push(nome.name)
+           })
+        
+    //    pokemon.forEach((urls) => {
+    //        var split = urls.url.split('/');
+    //        var num = split[split.length - 2];
+    //        var img ='http://assets.pokemon.com/assets/cms2/img/pokedex/full/' + num.padStart(3, "0") + ".png";
+    //     url.push(img)      
+    // });
+    
+    //     var pokemonsComplete =[]
+    //     for(var i = 0; i< pokeNome.length;i++){
+    //         pokemonsComplete.push(pokeNome[i], url[i])
+
+    //     }
+    //console.log(pokemonsComplete)
+    $('#busca').autocomplete({
+        source: pokeNome
+    })
+    })
+})
+</script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
